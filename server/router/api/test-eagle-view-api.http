@@ -1,0 +1,20 @@
+#
+# === Local ===
+###
+GET http://localhost:4000/eagleview/OrderStatusUpdate?StatusId=5&SubStatusId=20&
+    RefId=f16da0a0-98d9-4e11-bb01-c3c1612aba32&ReportId=987654
+
+### Endpoint for EagleView to post NeedToID
+GET http://localhost:4000/eagleview/NeedToId?RefId=f16da0a0-98d9-4e11-bb01-c3c1612aba32&ReportId=987654&
+    VerifyId=https%3A%2F%2Fwww.eagleview.com%2FNPA
+
+
+#
+# === STAGE ===
+###
+GET https://www.roofixstaging.com/eagleview/OrderStatusUpdate?StatusId=5&SubStatusId=20&
+    RefId=f16da0a0-98d9-4e11-bb01-c3c1612aba32&ReportId=987654
+
+### Endpoint for EagleView to post NeedToID
+GET https://www.roofixstaging.com/eagleview/NeedToId?RefId=f16da0a0-98d9-4e11-bb01-c3c1612aba32&ReportId=987654&
+    VerifyId=https%3A%2F%2Fwww.eagleview.com%2FNPA

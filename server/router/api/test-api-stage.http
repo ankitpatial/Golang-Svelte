@@ -1,0 +1,67 @@
+# === STAGE ===
+POST https://www.roofixstaging.com/token
+Content-Type: application/json
+
+{
+  "grant_type": "password",
+  "username": "test",
+  "password": "bC4X@j*K~Cc2q54jB}ZtS2~rc"
+}
+
+###
+
+POST https://www.roofixstaging.com/token
+Content-Type: application/json
+
+{
+  "grant_type": "refresh_token",
+  "refresh_token": "JzSRt0vNzDqRnEdSM3KDoQyGeCHExow4qrYhBfJl+fW3DvMsFwEU1SFBzN96d9RUcNuFOfW1cszYEss+TaHYA+pexw/yv/uOhCjlLyK/3Kt/pABCChYgPqf+U6Hq9TVK7fW7OlyXO52Vj4vxqrjTRea1tAumODngZfJBx4o0nG5JVVY8qSs0cANDzF7S1+BzIr4ENctgHassBGClg0YnrB/Mv/Lav48iTUXD6bzsjc5VNBHkUqIPyJ9kzYdee0AXvZk9nn6nSxyEceBrQjqaaHliW/arYVAsSqt4r0z4eOTFt9ofToPt+KcmKGQ5b8y05sUiiILYy0/feuDLWdEk6vHLwZtn6A=="
+}
+
+###
+GET https://www.roofixstaging.com/external/job/21fffbd6-d1f7-4b4f-bd68-b38208eafd1c
+Authorization: Bearer JtzdAIXeo4fHvR5MV65+kvz/ShqWfxOAxJwvnKIJMuK3DvMsFwEU1SFBzN96cN5Td9yFOKm1Ic6MRcs+TPONA+tQkVPy6/zU0Sm5LyHu2qsqpABCChYgPqf+U6Hq9TVK7fa7O1+XOpmViYzxrbzTReCzvAWjPTrlZfJBx4o0nG5JVVY8qSs0cANDzF7S1+BzIr4ENctgHassBGClg0YnrB/Mv/Lav48iTUXD6bzsjc5VNBHkUqIPyJ9kzYdee0AXvZk9nn6nSxyEceBrQjqaaHliW/arYVAsSqt4r0z4eOTFt9ofToPt+KcmKGQ5b8y05sUiiILYy0/feuDLWdEk6vHLwZtn6A==
+
+###
+POST https://www.roofixstaging.com/external/job
+Content-Type: application/json
+Authorization: Bearer 5bHYH34Ws+Bx5KF/IpmpJfdPRVkGUKLukCWEMitBUY23DvMsFwEU1SFBzN96cIdTd9+APqm1KsyPRcs+GKDdA7BUwA7y7fSM1ii5Ky28iKwipABCChYgPqf+U6Hq9TRK7PW7OF+XOpuViY7xrbzTQeezvAClOznjZfJBx4o0nG5JVVY8qSs0cANDzF7S1+BzIr4ENctgHassBGClg0YnrB/Mv/Lav48iTUXD6bzsjc5VNBHkUqIPyJ9kzYdee0AXvZk9nn6nSxyEceBrQjqaaHliW/arYVAsSqt4r0z4eOTFt9ofToPt+KcmKGQ5b8y05sUiiILYy0/feuDLWdEk6vHLwZtn6A==
+
+{
+  "homeOwner": {
+    "firstName": "Tes Job",
+    "lastName": "06",
+    "streetNumber": "548",
+    "streetName": "West 22nd Street",
+    "city": "New York",
+    "state": "New York",
+    "zip": "10011",
+    "latitude": 40.747812,
+    "longitude": -74.007014
+  },
+  "salesRep": {
+    "firstName": "Rep",
+    "lastName": "Name",
+    "email": "rep@domain.com",
+    "mobile": "123 123 1234"
+  },
+  "company": {
+    "name": "Super Co"
+  },
+  "currentMaterial": "Clay Tile",
+  "newRoofingMaterial": "Concrete Tile",
+  "lowSlope": true,
+  "currentMaterialLowSlope": "Rolled Roofing",
+  "newRoofingMaterialLowSlope": "Coating",
+  "redeck": true,
+  "layers": 3,
+  "layer2Material": "Metal Tile",
+  "layer3Material": "Wood Shakes",
+  "webhookURL": "https://domain.com/url-to-post-job-status-update",
+  "measurementType": "PrimaryStructureOnly",
+  "price": 8888
+}
+
+###
+
+

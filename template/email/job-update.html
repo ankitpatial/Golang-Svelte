@@ -1,0 +1,19 @@
+<!--
+  ~ Copyright (c) Simsaw Software Pvt. Ltd. 2023.
+  ~ Author: Ankit Patial <ankit@simsaw.com>
+  -->
+<p>
+    Dear {{.name}},
+</p>
+<p>
+    There is a new update on job: <br>
+    <i>{{html .jobAddress}}</i> <br>
+</p>
+<p>
+    {{html .message}}
+</p>
+{{if .pathname}}
+<p>
+    <a href='{{.siteURL}}{{.pathname}}' target='_blank' rel='noopener noreferrer'>Click</a> to view it.
+</p>
+{{end}}

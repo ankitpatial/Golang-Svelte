@@ -1,0 +1,12 @@
+extend type Query  {
+    counts: Counts @authorize
+}
+
+type Counts {
+    estimateCount: Int!
+    unassignedJobCount: Int!
+    assignedJobCount: Int!
+    paymentsPending: Int!
+    paymentsApproved: Int!
+    paymentsCompleted: Int!
+}

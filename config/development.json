@@ -1,0 +1,61 @@
+{
+  "sid": "roofix-dev",
+  "secret": "636*(876543ertyhjGR$%^%$3wdfgt65434%^%$#$RTY&^%432wedfdex",
+  "googleApiKey": "AIzaSyDmvuhkGHSj5czvG0g06xEHLT5e2js63Zw",
+  "website": {
+    "url": "http://localhost:3003",
+    "assetUrl": "http://localhost:3003",
+    "port": 4000
+  },
+  "cookie": {
+    "previous": {
+      "hashKey": "534d02abb8789b92701a5df3755f58e043f4c4cd3e64c2d484e8848c5f541ae0020cf96825b28b080f95ca6e6d04e5ebd203ae948ef74eca2d7cd29d63f71bc7",
+      "blockKey": "b29e78089fe83af5be8337f932c341b7213184dd9b2c57df59044f2361a4525d"
+    },
+    "current": {
+      "hashKey": "42bbf929e6bdc6411cfad9a3693a0cb7c0c49e9bafcc3bc22a2ff3b41d02487fbb74dfcecc4eab1d14feb39160bac1340ec545d5e61b0ec51773bdd8a7ebe75a",
+      "blockKey": "0c85374bf2cf954ea6898fe72172190a7004461163e15766b14b2e1cf913127e"
+    }
+  },
+  "db": {
+    "engine": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "database": "roofix",
+    "user": "root",
+    "password": "root"
+  },
+  "aws": {
+    "region": "us-east-1",
+    "profileName": "roofix-stage"
+  },
+  "mail": {
+    "sender": "No Reply <no-reply@roofix.com>"
+  },
+  "infra": {
+    "stack": {
+      "name": "roofix-dev",
+      "account": "",
+      "region": ""
+    },
+    "domain": "roofixstaging.com",
+    "websiteDomain": "www.roofixstaging.com",
+    "wsDomain": "ws.roofixstaging.com",
+    "assetsDomain": "assets.roofixstaging.com",
+    "assetsBucket": "assets.roofixstaging.com",
+    "dataBucket": "data.roofixstaging.com",
+    "logBucket": "log.roofixstaging.com",
+    "mailQueue": "mails",
+    "taskQueue": "tasks",
+    "notificationQueue": "notifications",
+    "dataSyncQueue": "datasync",
+    "errorQueue": "errors",
+    "hostedZoneID": "",
+    "hostedZone": "",
+    "db": {
+      "secretName": "",
+      "name": "",
+      "username": ""
+    }
+  }
+}

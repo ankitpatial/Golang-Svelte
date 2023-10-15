@@ -1,0 +1,13 @@
+extend type Query {
+    optionList(types: [OptionListType!]): [Options!] @authorize
+}
+
+enum OptionListType @goModel(model: "roofix/pkg/enum.OptionList") {
+    FINANCE
+    EPC
+}
+
+type Options {
+    type: OptionListType!,
+    options: [Entity!]
+}

@@ -1,0 +1,60 @@
+extend type Mutation {
+    """ creates a new api user and returns its pwd """
+    addApiUser(username: String!): String! @authorize(roles: [ADMIN])
+    editApiUser(input: ApiUserInput!): Boolean! @authorize(roles: [ADMIN])
+    """ set new pwd to give api username """
+    refreshApiUserPwd(id: ID!): String! @authorize(roles: [ADMIN])
+    """ enable | disabled api user access """
+    changeApiUserStatus(id: ID! isActive: Boolean!): Boolean! @authorize(roles: [ADMIN])
+}
+
+extend type Query {
+    """ list api users"""
+    apiUsers(page: PageInput!, where: ApiUserWhereInput): ApiUserConnection @authorize(roles: [ADMIN])
+    apiUser(id: ID!): ApiUser @authorize(roles: [ADMIN])
+}
+
+enum ApiUserCbAPIAuth {
+    NONE
+    BASIC
+    TOKEN
+    OAUTH
+}
+
+type ApiUserConnection {
+    edges:     [ApiUserEdge!]
+    pageInfo:   PageInfo!
+    totalCount: Int!
+}
+
+type ApiUserEdge {
+    node:   ApiUser
+    cursor: Cursor
+}
+
+type ApiUser implements Node{
+    id: ID!
+    username: String!
+    active: Boolean!
+    cbApiAuth: ApiUserCbAPIAuth
+    cbApiUrl: String
+    cbApiUser: String
+    cbApiPwd: String
+    cbApiToken: String
+    cbApiEndpoints: Map
+}
+
+input ApiUserInput {
+    id: ID!
+    cbApiAuth: ApiUserCbAPIAuth
+    cbApiUrl: String
+    cbApiUser: String
+    cbApiPwd: String
+    cbApiToken: String
+    cbApiEndpoints: Map
+}
+
+type ApiUserInfo @goModel(model: "roofix/ent.ApiUser"){
+    id: ID!
+    username: String!
+}

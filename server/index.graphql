@@ -1,0 +1,81 @@
+directive @authorize(roles: [Role]) on FIELD_DEFINITION
+directive @stringFor(roles: [Role]) on FIELD_DEFINITION
+directive @floatFor(roles: [Role]) on FIELD_DEFINITION
+directive @goModel(
+    model: String
+    models: [String!]
+) on OBJECT | INPUT_OBJECT | SCALAR | ENUM | INTERFACE | UNION
+directive @goField(
+    forceResolver: Boolean
+    name: String
+) on INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+directive @goTag(
+    key: String!
+    value: String
+) on INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+
+type Mutation
+
+type Query {
+    newULID:ID!
+}
+
+type Subscription {
+    currentTime: Time!
+}
+
+"""Maps a Time GraphQL scalar to a Go time.Time struct."""
+scalar Time
+""" type Map(Go type: map[string]interface{})"""
+scalar Map
+""" Go type interface{} """
+scalar Any
+scalar Void
+scalar Upload
+"""
+Define a Relay Cursor type:
+https://relay.dev/graphql/connections.htm#sec-Cursor
+"""
+scalar Cursor
+scalar Int64
+
+enum OrderDirection {
+    ASC
+    DESC
+}
+
+enum DateRange {
+    TODAY
+    YESTERDAY
+    THIS_WEEK
+    LAST_WEEK
+    THIS_MONTH
+    LAST_MONTH
+    THIS_YEAR
+    LAST_YEAR
+}
+
+interface Node @goModel(model: "roofix/ent.Noder") {
+    """The id of the object."""
+    id: ID!
+}
+
+input PageInput {
+    after: Cursor
+    first: Int
+    before: Cursor
+    last: Int
+}
+
+type PageInfo {
+    hasNextPage: Boolean!
+    endCursor: Cursor
+    hasPreviousPage: Boolean!
+    startCursor: Cursor
+}
+
+type Entity {
+    id: ID!
+    name: String!
+}
+

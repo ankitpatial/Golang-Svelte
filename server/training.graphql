@@ -1,0 +1,104 @@
+extend type Mutation {
+    """create a new training course"""
+    createTrainingCourse(name: String!): TrainingCourse! @authorize(roles: [ADMIN])
+
+    """ save a training video """
+    saveTrainingVideo(inp: InputTrainingVideo): Boolean! @authorize(roles: [ADMIN])
+
+    """ partner video access"""
+    partnerTrainingVideoAccess(partnerID: ID!, videoID: ID!, enabled: Boolean!):Boolean! @authorize(roles: [ADMIN])
+}
+
+extend type Query  {
+    """ search training course by its name"""
+    trainingCourses(search: String, page: PageInput!): TrainingCourseConnection! @authorize(roles: [ADMIN])
+
+    """ training kinds | types """
+    trainingVideoKinds: [Entity!] @authorize(roles: [ADMIN])
+
+    """training video categories"""
+    trainingVideoCourses(kind: TrainingType!, partnerID: ID, pageSize: Int): [CourseVideos] @authorize(roles: [ADMIN])
+
+    """training videos"""
+    trainingVideos(
+        kind: TrainingType!, courseID: ID!, search: String, partnerID: ID, page: PageInput!
+    ): TrainingVideoConnection @authorize(roles: [ADMIN])
+
+
+    """ training kinds | types as per assigned videos """
+    myTrainingVideoKinds: [Entity!] @authorize
+
+    """training video categories"""
+    myTrainingVideoCourses(kind: TrainingType!,pageSize: Int): [CourseVideos] @authorize
+
+    """training videos"""
+    myTrainingVideos(
+        kind: TrainingType!, courseID: ID!, search: String, page: PageInput!
+    ): TrainingVideoConnection @authorize
+}
+
+enum TrainingType @goModel(model: "roofix/pkg/enum.TrainingType") {
+    ROOFING
+    SOLAR
+    SITE_SURVEY
+}
+
+input InputTrainingVideo {
+    id: ID!
+    kind: TrainingType!
+    title: String!
+    description: String!
+    courseID: ID!
+    posterID: ID!
+    videoID: ID!
+}
+
+type TrainingCourseConnection {
+    totalCount: Int!
+    pageInfo:   PageInfo!
+    edges:     [TrainingCourseEdge!]
+}
+
+type TrainingCourseEdge {
+    node:   TrainingCourse
+    cursor: Cursor
+}
+
+type TrainingCourse {
+    id: ID!
+    name: String!
+}
+
+type CourseVideos {
+    id: ID!
+    name: String!
+    videos: TrainingVideoConnection!
+}
+
+type TrainingVideoConnection {
+    totalCount: Int!
+    pageInfo:   PageInfo!
+    edges:     [TrainingVideoEdge!]
+}
+
+type TrainingVideoEdge {
+    node:   TrainingVideo
+    cursor: Cursor
+}
+
+type TrainingVideo {
+    id: ID!
+    kind: TrainingType!
+    title: String!
+    description: String!
+    course: TrainingCourse!
+    posterURL: String!
+    videoURL: String!
+    assigned: Boolean
+}
+
+
+type TrainingVideoAccess {
+    videoID: ID!
+    enabled: Boolean!
+}

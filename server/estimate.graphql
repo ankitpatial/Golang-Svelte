@@ -1,0 +1,201 @@
+extend type Mutation {
+    """
+    create a new job manually
+    """
+    createEstimate(input: CreateEstimateInput!): ID! @authorize
+
+    """ request an estimate used by mobile app """
+    requestAnEstimate(inp: EstimateRequest): String! @authorize
+
+    """approve estimate request"""
+    approveEstimate(input: ApproveEstimateInput!): Boolean! @authorize
+
+    """deny estimate request"""
+    denyEstimate(input: DenyEstimateInput!): Boolean! @authorize
+
+    """
+    remove denied status of an estimate
+    only estimate owner(submitted by), company-admin or site-admin can do it
+    """
+    removeDenied(id: ID!):Boolean! @authorize
+
+    """ test job price calc """
+    testPricing(job: CreateEstimateInput!, measure: [Measurement!]!): PriceSummary! @authorize(roles:[ADMIN])
+}
+
+extend type Query {
+    """ estimate by its id """
+    estimate(id: ID!): Estimate @authorize
+    """ estimates """
+    estimates(status: EstimateStatus, search: String, dtRange: [String!], page: PageInput!): EstimateConnection @authorize
+
+    """ nearmap api response data """
+    nearmapResponse(id: ID!, respID: ID!): NearmapResponse @authorize(roles:[ADMIN])
+}
+
+enum CurrentMaterial {
+    ThreeTabAsphaltShingles
+    ArchAsphaltShingles
+    TileClay
+    TileConcrete
+    WoodShakes
+    MetalShakes
+    MetalTitle
+    StandingSeamMetal
+    Slate
+    MetalRPanelExpFastener
+    LowSlopeOnly
+}
+
+enum NewMaterial {
+    ArchBestValue
+    ArchMoreExpensive
+    StandingSeamMetal
+    TileConcrete
+    TileClayBarrel
+    Repaper
+    ModBit
+}
+
+enum Measure @goModel(model: "roofix/pkg/enum.Measure"){
+    PrimaryStructureOnly
+    PrimaryPlusDetachedGarage
+    AllStructuresOnParcel
+}
+
+enum EstimateStatus @goModel(model: "roofix/pkg/enum.EstimateStatus") {
+    New
+    Pending
+    Approved
+    Denied
+    OnHold
+    Failed
+}
+
+enum ExtraChargeCondition @goModel(model: "roofix/pkg/enum.Condition") {
+    AddIfStateIn
+    SubtractIfStateIn
+}
+
+input EstimateRequest {
+    ownerName: String!
+    ownerEmail: String!
+    ownerPhone: String!
+    streetNumber: String!
+    streetName: String!
+    city: String!
+    state: String!
+    zip: String!
+    latitude: Float!
+    longitude: Float!
+    layers: Int!
+    currentMaterial: CurrentMaterial!
+    newRoofingMaterial: NewMaterial!
+    redeck: Boolean!
+    partial: Int
+    includeDetachedStructure: Boolean
+}
+
+
+input CreateEstimateInput {
+    id: ID
+    ownerFirstName: String!
+    ownerLastName: String!
+    streetNumber: String!
+    streetName: String!
+    city: String!
+    state: String!
+    zip: String!
+    latitude: Float
+    longitude: Float
+    repFirstName: String!
+    repLastName: String!
+    repEmail: String!
+    repMobile: String!
+    companyName: String!
+    currentMaterial: String!
+    newRoofingMaterial: String
+    lowSlope: Boolean!
+    currentMaterialLowSlope: String
+    newRoofingMaterialLowSlope: String
+    redeck: Boolean!
+    layers: Int!
+    layer2Material: String
+    layer3Material: String
+    measurementType: String!
+    partial: Int
+}
+
+input ApproveEstimateInput {
+    id: ID!
+    ownerEmail: String
+    ownerPhone: String
+    epc: ID
+    agree: Boolean
+}
+
+input DenyEstimateInput {
+    id: ID!
+    note: String
+}
+
+type EstimateConnection {
+    totalCount: Int!
+    pageInfo:   PageInfo!
+    edges:     [EstimateEdge!]
+}
+
+type EstimateEdge {
+    cursor: Cursor
+    node:   Estimate
+}
+
+type Estimate @goModel(model: "roofix/ent.Estimate") {
+    id: ID!
+    createdAt: Time!
+    status: EstimateStatus!
+    currentMaterial: String!
+    newRoofingMaterial: String
+    lowSlope: Boolean!
+    currentMaterialLowSlope: String
+    newRoofingMaterialLowSlope: String
+    redeck: Boolean!
+    layers: Int!
+    layer2Material: String
+    layer3Material: String
+    measurementType: Measure!
+    partial: Int
+
+    totalSquares: Float
+    primaryPitch: Float
+    price: Float
+    priceSummary: String
+    bounds: [Point!]
+    estimatorRawResponse: Map
+    failureReason: String
+
+    companyName: String!
+    creatorName: String!
+    homeOwner: HomeOwner!
+    salesRep: UserInfo
+
+    pdf: DocumentInfo
+}
+
+type HomeOwner @goModel(model: "roofix/ent.HomeOwner") {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String
+    phone: String
+    streetNumber: String!
+    streetName: String!
+    city: String!
+    state: String!
+    zip: String!
+    latitude: Float
+    longitude: Float
+}
+
+
+

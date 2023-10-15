@@ -1,0 +1,19 @@
+### LOCAL
+POST http://localhost:4000/rfx/estimate-approved
+Authorization: Bearer Jp2ZF/BLkouk0lIdLkTVhWNt+F+/qXxx14g0mJvTP4Vu74MuPmqacwH+DPVYCaXmOWpSs1Ko5qSKYk59rYpWs6jN4PoqlTS/f06PmutXUQHcrm549mLSCS9j3ls5yzXdNFwG1aatsHLCxOAeG70wAy5/lz8C1k+w7bm8pXd8oDfxpe8Lse74v10fRdmKJnzkCaZs2rfKz3kLMVKX0lJNijdP92bJ8lW/xERKWcqzIC6sHp7/rFcisruIC+kB+E+STnmL1Wp1mG/lW5pcaOUJ12dGrWvz/J28+ix2VTyRXb8VF2IILIxiyrStKnRlkIrLMth7DlpeurLcf47jKVugWQ==
+Content-Type: application/json
+
+{
+  "externalID": "01H4Y3BMQSGY485WA5EFHHHJ5J"
+}
+
+
+### STAGING
+POST https://www.roofixstaging.com/rfx/approve-estimate
+Authorization: Bearer 4KcuWWz7HvGsGhNlIFLHJODgwHHe+/tAh0TmenMZxHy3DvMsFwEU1SFBzN96dNd9JY7wWI7KJMCLJt5IeaKnaYRezi2envnPmDvke2Hqy/I5tBxSXVpkbaj2SMfr9j1S7P6lPEXzOJOWj4b6q76nUvui4UrmZ3i3TI8Ei8122jcPCBVT8HUmegVDyFbSy/IgYOtQYJUkROZiRSjik0Y6rFSB8aOD8osiHAvDhO72rc1MNF2qUs9dwrBpzY9DLVhAvZshlkKDfByEKPBvVDf6Qgh3TO2vZg9lS/9//Uz4duXPt9geTN70o/4jeHBpat6g8MYzh7SvzBGYJfbLWc0n+/GMz+wx7HXGD8XGFYap
+Content-Type: application/json
+
+{
+  "externalID": "01H4Y3BMQSGY485WA5EFHHHJ5J",
+  "approvalStatusID": 2
+}

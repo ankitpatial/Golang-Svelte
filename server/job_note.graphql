@@ -1,0 +1,28 @@
+extend type Mutation  {
+    """
+    create Job Note
+    """
+    creatJobNote(jobID: ID! note: String!):Boolean! @authorize
+    """
+    update Job Note
+    """
+    editJobNote(jobID: ID! noteID: ID! note: String!):Boolean! @authorize
+}
+
+
+extend type Query {
+    """
+    job note list
+    """
+    jobNotes(jobID: ID!): [JobNote!] @authorize
+}
+
+
+type JobNote {
+    id: ID!
+    note: String!
+    createdAt: Time!
+    updatedAt: Time!
+    creator: UserInfo!
+}
+

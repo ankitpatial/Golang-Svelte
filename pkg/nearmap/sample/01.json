@@ -1,0 +1,523 @@
+{
+  "extentMaxX": -90.0151676115066,
+  "extentMaxY": 29.963664,
+  "extentMinX": -90.01562138849341,
+  "extentMinY": 29.963476,
+  "link": "https://apps.nearmap.com/maps/#/@29.9635713,-90.0153921,20.00z,0d/V/20210421",
+  "rollups": {
+    "00fdacaf-2cd2-5e4a-a8d3-401bb9bd08a2": {
+      "description": "total clipped area (sq. ft) of flat",
+      "value": 0
+    },
+    "01b02231-d840-548d-978b-171955619b2b": {
+      "description": "total clipped area (sq. ft) of tree overhang",
+      "value": 591
+    },
+    "022a77e6-2604-542c-83a8-75056d0bbae2": {
+      "description": "turret presence confidence",
+      "value": null
+    },
+    "042d2dbf-e503-54d3-8d36-d6c883ae612e": {
+      "description": "total unclipped area (sq. m) of turret",
+      "value": 0
+    },
+    "0491594d-e331-5161-835b-7b3411072c60": {
+      "description": "metal (roof material) ratio in primary roof",
+      "value": 0.04487932638174964
+    },
+    "059750a4-bd9c-5d98-acf8-f2c117f4308a": {
+      "description": "tile (roof material) presence in primary roof",
+      "value": false
+    },
+    "08aba533-81c1-5631-b126-915b4e7ef976": {
+      "description": "total clipped area (sq. ft) of metal",
+      "value": 0
+    },
+    "0a88aade-7f2a-5148-9a35-a9cb159008e0": {
+      "description": "turret (roof types) presence in primary roof",
+      "value": false
+    },
+    "0e107f3a-1942-5172-91ad-512dc1c19978": {
+      "description": "gable (roof types) area (sq. ft) of primary roof",
+      "value": 1578
+    },
+    "0f207b1f-3666-5edd-84d5-802c9c7200f1": {
+      "description": "turret count",
+      "value": 0
+    },
+    "13bf8050-290c-5705-849c-3adb5998f0e1": {
+      "description": "total clipped area (sq. m) of gable",
+      "value": 141.7
+    },
+    "16787ce1-59aa-5969-b3c7-9fd116d84e4b": {
+      "description": "unclipped area (sq. m) of primary roof",
+      "value": 170.3
+    },
+    "18961971-84de-52a2-bf3e-e1eb2b92f7aa": {
+      "description": "total unclipped area (sq. m) of hip",
+      "value": 0
+    },
+    "18a30033-ec67-5e98-8c76-918f7bb207c8": {
+      "description": "tile (roof material) is dominant in primary roof",
+      "value": false
+    },
+    "1982dd83-8d8c-5d95-939e-7fd0d2908e01": {
+      "description": "total unclipped area (sq. m) of tree overhang",
+      "value": 55.4
+    },
+    "1d530a3c-efda-54ba-952d-3cf8f1f6f70d": {
+      "description": "total unclipped area (sq. ft) of tree overhang",
+      "value": 596
+    },
+    "2400ed2b-fbeb-5cb6-b4a1-bf5713d45460": {
+      "description": "clipped area (sq. ft) of primary roof",
+      "value": 1626
+    },
+    "25ba07a0-7e9a-506e-b719-4c0c23f40c50": {
+      "description": "shingle (roof material) presence in primary roof",
+      "value": true
+    },
+    "2869252c-7972-5228-b620-6c66f24cb964": {
+      "description": "hip (roof types) area (sq. ft) of primary roof",
+      "value": 0
+    },
+    "288c3df3-c555-54b2-a892-3e68196c72a7": {
+      "description": "hip (roof types) presence in primary roof",
+      "value": false
+    },
+    "31225e77-2159-5509-a83c-838c18445dbf": {
+      "description": "pitch degrees of primary roof",
+      "value": 26.09
+    },
+    "3223f9b7-71fa-55b4-95ff-4650dae7824f": {
+      "description": "total clipped area (sq. m) of roof",
+      "value": 151.1
+    },
+    "3811c6c8-b61e-5c3d-9d14-5e0dcacb4708": {
+      "description": "system version",
+      "value": "gen5-tranquil_pool-1.0"
+    },
+    "3be5bbdd-fb8a-56c8-9c05-83224e31323b": {
+      "description": "tile (roof material) area (sq. ft) of primary roof",
+      "value": 0
+    },
+    "3c600ebb-0f2e-56e0-8b43-131637a019d5": {
+      "description": "hip (roof types) ratio in primary roof",
+      "value": 0
+    },
+    "3f852781-63b5-59e3-9139-48d5e99a70c6": {
+      "description": "total clipped area (sq. ft) of dutch gable",
+      "value": 0
+    },
+    "3fb0021c-47ee-5d73-bea6-c0c38e9e43c7": {
+      "description": "tree overhang (roof overhang attributes) area (sq. m) of primary roof",
+      "value": 55.4
+    },
+    "3fb89a2d-2e15-5754-b18a-269e1e7c359f": {
+      "description": "total unclipped area (sq. ft) of flat",
+      "value": 0
+    },
+    "4138d375-84c9-577b-8b01-9758d205b783": {
+      "description": "shingle presence confidence",
+      "value": 0.880859375
+    },
+    "41d30141-8144-5032-9df0-a01f87e06514": {
+      "description": "hip (roof types) area (sq. m) of primary roof",
+      "value": 0
+    },
+    "48cb48b9-e401-55ad-b14a-65a35c67f360": {
+      "description": "flat (roof types) presence in primary roof",
+      "value": true
+    },
+    "4a5af13b-d1a1-5169-8284-28ffdd1d950c": {
+      "description": "shingle (roof material) ratio in primary roof",
+      "value": 0.8527806334753023
+    },
+    "4a967bad-4c7b-5c9d-a0c1-936dbf12ad15": {
+      "description": "metal (roof material) area (sq. m) of primary roof",
+      "value": 7.6
+    },
+    "4cf386ee-67c1-5a22-be94-1c29ad527e6a": {
+      "description": "gable (roof types) presence in primary roof",
+      "value": true
+    },
+    "50031e0b-98d1-5524-94b7-bde691eaee76": {
+      "description": "metal (roof material) is dominant in primary roof",
+      "value": false
+    },
+    "51cbb913-1c5c-5253-b333-3789e34839de": {
+      "description": "roof count",
+      "value": 1
+    },
+    "51e0970c-14d8-5621-9876-959349dfcfe3": {
+      "description": "total unclipped area (sq. m) of dutch gable",
+      "value": 0
+    },
+    "52152808-a4d6-51ad-8808-d735b07ce475": {
+      "description": "total clipped area (sq. m) of tile",
+      "value": 0
+    },
+    "522cbd32-14ed-5450-b218-19ef92f92edf": {
+      "description": "dutch gable (roof types) area (sq. ft) of primary roof",
+      "value": 0
+    },
+    "56a1e713-3675-5bb8-a5f6-d2cd029bd84f": {
+      "description": "dutch gable (roof types) ratio in primary roof",
+      "value": 0
+    },
+    "57111d00-8803-5e21-8a27-730dde40ab85": {
+      "description": "turret present",
+      "value": false
+    },
+    "58989579-1f7c-50e7-a5a5-33eab090d0c6": {
+      "description": "gable (roof types) ratio in primary roof",
+      "value": 0.8611151906790033
+    },
+    "5e8e5368-70cb-5ee1-924a-2020f618e0cb": {
+      "description": "metal present",
+      "value": false
+    },
+    "5e94a847-9d62-5cf3-9241-ee048c276842": {
+      "description": "hip present",
+      "value": false
+    },
+    "5e9a7f5f-7604-5c7c-b3bc-d2fc4340d2d5": {
+      "description": "shingle count",
+      "value": 1
+    },
+    "5ebba98e-4b07-5fc3-a00d-e364c8a10b80": {
+      "description": "roof presence confidence",
+      "value": 0.822265625
+    },
+    "60097c17-2a2e-5633-a6fd-d54fa8329f9f": {
+      "description": "gable (roof types) area (sq. m) of primary roof",
+      "value": 146.6
+    },
+    "60624bcd-ea76-5815-963d-a4d088155f32": {
+      "description": "tile present",
+      "value": false
+    },
+    "6132706b-622f-5c68-ad85-3b3f7d6b6f5b": {
+      "description": "tree overhang present",
+      "value": true
+    },
+    "6196e9dc-db51-5814-858b-b664a1e160a2": {
+      "description": "tree overhang count",
+      "value": 1
+    },
+    "61c5481f-d02e-56d5-9ff5-0a122818cd89": {
+      "description": "gable (roof types) confidence in primary roof",
+      "value": 0.861328125
+    },
+    "651b897d-658b-50ea-a769-c17f297d2f86": {
+      "description": "tile (roof material) confidence in primary roof",
+      "value": null
+    },
+    "66dd1ba2-e00d-5393-b2f1-e43a63560445": {
+      "description": "total clipped area (sq. ft) of tile",
+      "value": 0
+    },
+    "6755f0af-92b0-5b39-80d7-49b3125efce7": {
+      "description": "tile (roof material) area (sq. m) of primary roof",
+      "value": 0
+    },
+    "683b361e-24e2-5ade-a4f6-2a5c31bae5f5": {
+      "description": "total clipped area (sq. m) of tree overhang",
+      "value": 54.9
+    },
+    "6ba4237b-31cd-5c22-9a18-769bf4be88f9": {
+      "description": "metal (roof material) presence in primary roof",
+      "value": true
+    },
+    "6c2558d1-cdc4-5c99-9cde-3103d4f3109e": {
+      "description": "metal presence confidence",
+      "value": null
+    },
+    "6d2b2533-60ef-53b5-8f19-a27fec7a4a22": {
+      "description": "total unclipped area (sq. m) of flat",
+      "value": 0
+    },
+    "6f1f17a1-f3c5-5328-baf3-abb2a84a8af3": {
+      "description": "tree overhang (roof overhang attributes) presence in primary roof",
+      "value": true
+    },
+    "6f55d682-fc06-5ad0-aace-333b9edb1d2e": {
+      "description": "total unclipped area (sq. ft) of dutch gable",
+      "value": 0
+    },
+    "76b1896e-b949-53e4-bf77-ec747306ecca": {
+      "description": "total clipped area (sq. ft) of hip",
+      "value": 0
+    },
+    "77fbe573-16fb-5217-9595-b6332b444b36": {
+      "description": "total unclipped area (sq. ft) of gable",
+      "value": 1578
+    },
+    "798a2b21-6a1a-53bf-ae98-1ca81f9d238b": {
+      "description": "total unclipped area (sq. m) of tile",
+      "value": 0
+    },
+    "7ab9d2f9-cb19-5ce4-ac9e-48ceb6f64532": {
+      "description": "total clipped area (sq. m) of shingle",
+      "value": 141.2
+    },
+    "7b8cb4e6-ffd8-52c5-a27c-617cb3517b20": {
+      "description": "gable presence confidence",
+      "value": 0.861328125
+    },
+    "7db500d2-a929-5000-804b-66c636e71b8f": {
+      "description": "metal (roof material) confidence in primary roof",
+      "value": 0.607421875
+    },
+    "8047aa7c-0842-5d39-b7a0-de70fa1f2178": {
+      "description": "gable present",
+      "value": true
+    },
+    "83c0010e-045a-5e35-81bb-6bd0695c1212": {
+      "description": "tree overhang (roof overhang attributes) ratio in primary roof",
+      "value": 0.32521907279580947
+    },
+    "857e4679-15a1-5214-9677-b59e97966196": {
+      "description": "primary roof confidence",
+      "value": 0.822265625
+    },
+    "86de0b58-a1b9-5bae-ba78-c4676121bea2": {
+      "description": "metal count",
+      "value": 0
+    },
+    "8a9e2f60-6768-5b8e-84b0-c1598b3f4f2d": {
+      "description": "hip (roof types) confidence in primary roof",
+      "value": null
+    },
+    "8b0cc2ee-c529-5439-b7af-d843b7910b0c": {
+      "description": "tree overhang (roof overhang attributes) confidence in primary roof",
+      "value": 0.9572799205780028
+    },
+    "8efb60e5-42e6-5615-a08e-470be93e2346": {
+      "description": "total clipped area (sq. ft) of shingle",
+      "value": 1520
+    },
+    "9004f7ac-7240-5d7d-8cdd-c29adecd7ada": {
+      "description": "total unclipped area (sq. m) of shingle",
+      "value": 145.2
+    },
+    "905e6462-2f41-5521-bd16-0678d1fa3e0d": {
+      "description": "turret (roof types) confidence in primary roof",
+      "value": null
+    },
+    "93849242-f355-5886-8180-322824b0eb9e": {
+      "description": "total unclipped area (sq. ft) of hip",
+      "value": 0
+    },
+    "97ff0211-98a5-53f9-a07e-0d0ddc5f8fe5": {
+      "description": "metal (roof material) area (sq. ft) of primary roof",
+      "value": 82
+    },
+    "986be67e-2869-59f5-9ba3-e9ca0fb02b1a": {
+      "description": "hip presence confidence",
+      "value": null
+    },
+    "99af8c9b-813b-5a47-ad46-8c9c0c4930f5": {
+      "description": "roof present",
+      "value": true
+    },
+    "9a6dcdc5-ac39-52a7-9f3c-9b473784a655": {
+      "description": "flat (roof types) ratio in primary roof",
+      "value": 0.003634894991922456
+    },
+    "9ae46172-8a4b-553e-9f36-e325efedfc61": {
+      "description": "shingle (roof material) is dominant in primary roof",
+      "value": true
+    },
+    "a169a6af-7968-56e6-b47a-66a8308b39ad": {
+      "description": "turret (roof types) ratio in primary roof",
+      "value": 0
+    },
+    "a5d04b2f-7f29-5279-80a1-3403788e1911": {
+      "description": "flat (roof types) area (sq. ft) of primary roof",
+      "value": 7
+    },
+    "a6f25429-6704-56f1-bf16-31ecacb1e9e7": {
+      "description": "tile presence confidence",
+      "value": null
+    },
+    "ac4cb798-40d7-54d7-9024-b783a35b260d": {
+      "description": "dutch gable (roof types) confidence in primary roof",
+      "value": null
+    },
+    "add0514a-1041-5bbf-98b9-798404cf96b6": {
+      "description": "total clipped area (sq. m) of flat",
+      "value": 0
+    },
+    "aed6aa02-230d-5997-9f13-c0fee5701f9b": {
+      "description": "total clipped area (sq. m) of dutch gable",
+      "value": 0
+    },
+    "b02a3652-8a87-5d20-849c-1afb3df67b19": {
+      "description": "survey (capture) date",
+      "value": "2021-04-21"
+    },
+    "b04d6b59-5307-57d9-a763-dfa64100670a": {
+      "description": "total unclipped area (sq. ft) of roof",
+      "value": 1833
+    },
+    "b40c2e98-1f72-5efe-be6e-5b53d65d84a4": {
+      "description": "total clipped area (sq. ft) of gable",
+      "value": 1525
+    },
+    "b532466c-ae90-5228-9de3-4b1f8215abee": {
+      "description": "total clipped area (sq. m) of metal",
+      "value": 0
+    },
+    "b576551e-11b9-55bd-91eb-b6ce44bb373f": {
+      "description": "total clipped area (sq. ft) of roof",
+      "value": 1626
+    },
+    "b615a1cf-0160-5b39-b707-b827562c78e0": {
+      "description": "gable count",
+      "value": 1
+    },
+    "b72d014c-64a9-5426-a11d-e7563e2fbd25": {
+      "description": "shingle (roof material) area (sq. m) of primary roof",
+      "value": 145.2
+    },
+    "b83a7bfe-9a13-557b-ada2-6e2f1006a04c": {
+      "description": "flat (roof types) area (sq. m) of primary roof",
+      "value": 0.6
+    },
+    "bef96e6f-65a5-5f30-8937-0259cfea83cd": {
+      "description": "clipped area (sq. m) of primary roof",
+      "value": 151.1
+    },
+    "bf2b15d0-dbfc-55f3-bcdc-b571028942ec": {
+      "description": "perspective",
+      "value": "Vert"
+    },
+    "c0ab988d-e2e2-52fc-81a0-d2144f1fcb94": {
+      "description": "flat count",
+      "value": 0
+    },
+    "cef42785-600d-5542-95c5-d0def8a20c29": {
+      "description": "dutch gable presence confidence",
+      "value": null
+    },
+    "d0aaea99-9d1c-56cd-a2d5-e78edc7bb4d8": {
+      "description": "unclipped area (sq. ft) of primary roof",
+      "value": 1833
+    },
+    "d4b13d82-82b0-50c5-b77e-e09268ecce74": {
+      "description": "flat (roof types) confidence in primary roof",
+      "value": 0.509765625
+    },
+    "d78ee732-589a-5d5c-9ef7-9a3f27735e98": {
+      "description": "total unclipped area (sq. m) of roof",
+      "value": 170.3
+    },
+    "d7c73db4-7e7f-5b46-b930-0e7a89e75637": {
+      "description": "dutch gable count",
+      "value": 0
+    },
+    "d83d0879-91ed-5b16-ab1d-c48db218c000": {
+      "description": "total clipped area (sq. m) of hip",
+      "value": 0
+    },
+    "d98b4594-89d0-56e0-97ff-e7f31e25b13b": {
+      "description": "total clipped area (sq. m) of turret",
+      "value": 0
+    },
+    "dd026728-7518-5e09-af6d-ffaeb292bda2": {
+      "description": "dutch gable present",
+      "value": false
+    },
+    "dd36a586-0869-5ae1-b906-380d2227f444": {
+      "description": "flat presence confidence",
+      "value": null
+    },
+    "de592b36-efde-54ac-b532-8a4692ca5c09": {
+      "description": "total unclipped area (sq. ft) of shingle",
+      "value": 1563
+    },
+    "e043b564-3b2b-5574-977f-96cd9a5ce1e0": {
+      "description": "dutch gable (roof types) area (sq. m) of primary roof",
+      "value": 0
+    },
+    "e272bcd1-ec16-56e9-9aed-6b6df4b38c80": {
+      "description": "total unclipped area (sq. m) of metal",
+      "value": 0
+    },
+    "e5570070-da0b-5704-961f-7397e6d9c210": {
+      "description": "flat present",
+      "value": false
+    },
+    "e59c6f1b-7902-532c-aff2-c9df1461a5bf": {
+      "description": "total unclipped area (sq. ft) of metal",
+      "value": 0
+    },
+    "e654c744-f3e8-5ec8-a4cd-4157891d9732": {
+      "description": "total unclipped area (sq. ft) of tile",
+      "value": 0
+    },
+    "e7970774-269c-591b-ae96-64bba65fc3e0": {
+      "description": "primary roof has 3D attributes",
+      "value": true
+    },
+    "e817a248-b17c-52f2-b6a8-a684f7eab50c": {
+      "description": "tree overhang presence confidence",
+      "value": 0.9572799205780028
+    },
+    "ea83ca07-b493-5232-a60d-6165d7b8535b": {
+      "description": "shingle (roof material) area (sq. ft) of primary roof",
+      "value": 1563
+    },
+    "eb87dd21-159d-5d2f-9ee1-8d7fc4d80ac5": {
+      "description": "shingle present",
+      "value": true
+    },
+    "ebf8f274-19b4-5a1f-9ebf-f3e3d3f1eee9": {
+      "description": "tile (roof material) ratio in primary roof",
+      "value": 0
+    },
+    "ec245c0e-5bd4-50ff-ae5f-1f7b7e0ed67c": {
+      "description": "hip count",
+      "value": 0
+    },
+    "ed6f4411-11d1-5ce6-91ea-557644bfcfed": {
+      "description": "shingle (roof material) confidence in primary roof",
+      "value": 0.880859375
+    },
+    "ed7effb9-491c-5a38-98a1-695bd7dd768c": {
+      "description": "total unclipped area (sq. ft) of turret",
+      "value": 0
+    },
+    "eddb6178-8a28-55ba-a47e-311ad6fdf7fa": {
+      "description": "turret (roof types) area (sq. m) of primary roof",
+      "value": 0
+    },
+    "eeaff46c-9a32-515b-a192-57b026f9cec6": {
+      "description": "tree overhang (roof overhang attributes) area (sq. ft) of primary roof",
+      "value": 596
+    },
+    "f3c270e0-c79b-5523-90f2-ef028d84a0d5": {
+      "description": "total unclipped area (sq. m) of gable",
+      "value": 146.6
+    },
+    "f4971ff5-e254-5aa7-9c33-16f5939044df": {
+      "description": "turret (roof types) area (sq. ft) of primary roof",
+      "value": 0
+    },
+    "fa7948d0-9514-5f6d-b75b-c4405efc3541": {
+      "description": "dutch gable (roof types) presence in primary roof",
+      "value": false
+    },
+    "fb846e53-7420-5e57-99f9-693d91090e35": {
+      "description": "total clipped area (sq. ft) of turret",
+      "value": 0
+    },
+    "fbb950ec-be30-54a4-85e6-6df6c93cd75e": {
+      "description": "tile count",
+      "value": 0
+    }
+  },
+  "surveyDate": "2021-04-21",
+  "surveyId": "78b2d68e-a84d-11eb-ae60-63a58d3a6fd4"
+}

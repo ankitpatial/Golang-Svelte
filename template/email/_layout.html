@@ -1,0 +1,82 @@
+{{define "layout"}}
+<html lang='en'>
+<head>
+    <meta name='viewport' content='width=device-width' />
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <title>RFX</title>
+</head>
+<body>
+<div style="background-color:#f2f2f2;margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px">
+    <table cellpadding='0' cellspacing='0' border='0' bgcolor='#ffffff' align='center' style='width:100%'>
+        <tbody>
+        <tr style='border-collapse:collapse'>
+            <td align='center' bgcolor='#f2f2f2' style='border-collapse:collapse;padding:15px'>
+                <table cellpadding='0' cellspacing='0' border='0' bgcolor='#ffffff'
+                       style='width:640px;border:2px solid #77808a;background-color:#ffffff;text-align:left;padding:0;margin:0'>
+                    <tbody>
+                    <tr style='border-collapse:collapse'>
+                        <td style='border-collapse:collapse;padding:15px'>
+                            <table>
+                                <tbody>
+                                <tr style='border-collapse:collapse'>
+                                    <td style='border-collapse:collapse;padding:0;vertical-align:top;width:200px'>
+                                        <img src='{{.assetURL}}/mail-logo.png'
+                                             alt='RFX' title='RFX'
+                                             style='outline:none;text-decoration:none;display:block;max-width:175px'
+                                        />
+                                    </td>
+                                    <td style='border-collapse:collapse;padding:0;vertical-align:top;text-align:right;width:100%'>
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class='m_-6736051552126560803borderRow' style='border-collapse:collapse'>
+                        <td style='border-collapse:collapse;padding:0;background-color:#e2e2e2;height:1px;line-height:0'></td>
+                    </tr>
+
+                    <tr style='border-collapse:collapse'>
+                        <td style='border-collapse:collapse;padding:15px;overflow-wrap: anywhere'>
+                            <div style='font-size: 1em;line-height:1.4em;'>
+                                {{ template "message" .}}
+                                <p>
+                                    Thank You!
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr style='border-collapse:collapse'>
+            <td align='center' bgcolor='#f2f2f2' style='border-collapse:collapse;padding:15px'>
+                <table width='630' cellpadding='5px' cellspacing='0' border='0'
+                       style='width:640px;font-size:.75em;color:#aaaaaa;text-align:left'>
+                    <tbody>
+                    <tr style='border-collapse:collapse'>
+                        <td style='border-collapse:collapse;padding:15px;padding-top:0'>
+                            <p style='color:#333;font-size:.875em;line-height:1.4em;margin:0 0 .75em'>
+                                <a href='{{.siteURL}}' target='_blank' rel='noopener noreferrer'>{{.siteName}}</a>
+                            </p>
+                            <p>
+                                <small>
+                                    <strong>** This is a system generated email, please do not reply to it **</strong>
+                                </small>
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+{{end}}
+
+

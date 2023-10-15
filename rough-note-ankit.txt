@@ -1,0 +1,10 @@
+Here is a list of APIs need to complete the app.
+A. Site Survey
+- check the slot available
+- submit site survey
+- get the site survey list
+B. Update user profile
+C. Hide Home Tab and Theme information
+D. Training list
+E. Logout
+F. Notifications

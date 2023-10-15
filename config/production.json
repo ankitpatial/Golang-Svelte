@@ -1,0 +1,61 @@
+{
+  "sid": "roofix",
+  "secret": "FDEWQ@!@#$RTYGFDswq234r5tyui9876%$EDFGBHNJKLJNB",
+  "googleApiKey": "AIzaSyDJ3lg6nti0dDEQNL63nSZcp9YNCYsyb20",
+  "website": {
+    "url": "https://app.rfx.services",
+    "assetUrl": "https://app-assets.rfx.services",
+    "port": 443
+  },
+  "cookie": {
+    "previous": {
+      "hashKey": "5f264db107988927d12d62028d3405bf1d9e1a746d5d197f3baa0615b1237f957e5cb0ca410f9d0ac1ecc3a7c5aa75de902bb6dd36a7515eddd16ab65241ea9e",
+      "blockKey": "37ae87e338a692117a017ce11550f5fc3c56a80b842456d94307659bf51f4e48"
+    },
+    "current": {
+      "hashKey": "5f264db107988927d12d62028d3405bf1d9e1a746d5d197f3baa0615b1237f957e5cb0ca410f9d0ac1ecc3a7c5aa75de902bb6dd36a7515eddd16ab65241ea9e",
+      "blockKey": "37ae87e338a692117a017ce11550f5fc3c56a80b842456d94307659bf51f4e48"
+    }
+  },
+  "db": {
+    "engine": "mysql",
+    "host": "",
+    "port": 3306,
+    "database": "",
+    "user": "",
+    "password": ""
+  },
+  "aws": {
+    "region": "us-east-1",
+    "profileName": ""
+  },
+  "mail": {
+    "sender": "RFX-SERVICES<no-reply@rfx.services>"
+  },
+  "infra": {
+    "stack": {
+      "name": "roofix-prod",
+      "account": "655143700202",
+      "region": "us-east-1"
+    },
+    "domain": "app.rfx.services",
+    "websiteDomain": "app.rfx.services",
+    "wsDomain": "ws.rfx.services",
+    "assetsDomain": "app-assets.rfx.services",
+    "assetsBucket": "app-assets.rfx.services",
+    "dataBucket": "data.rfx.services",
+    "logBucket": "logs.rfx.services",
+    "mailQueue": "mails_prod",
+    "taskQueue": "tasks_prod",
+    "notificationQueue": "notifications_prod",
+    "dataSyncQueue": "datasync_prod",
+    "errorQueue": "errors_prod",
+    "hostedZoneID": "Z09914003MJHQZ56WS3T2",
+    "hostedZone": "rfx.services",
+    "db": {
+      "secretName": "db-secrete-prod",
+      "name": "roofix",
+      "username": "roofix"
+    }
+  }
+}

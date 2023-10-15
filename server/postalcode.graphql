@@ -1,0 +1,22 @@
+extend type Mutation {
+    markServiceArea(id: ID!, value: Boolean!): Boolean! @authorize(roles: [ADMIN])
+}
+
+extend type Query {
+    states(q: String!): [State!] @authorize
+    serviceStates(q: String!): [State!] @authorize
+    cities(state: String!, q: String!, skip: Int!, take: Int!): [City!] @authorize
+    allServiceAreas: [State!] @authorize
+}
+
+type State {
+    id: ID!
+    name: String!
+    cities: [City]!
+}
+
+type City {
+    id: ID!
+    name: String
+    zip: String
+}

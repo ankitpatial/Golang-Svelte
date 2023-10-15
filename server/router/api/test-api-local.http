@@ -1,0 +1,75 @@
+# === LOCAL ===
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+  "grant_type": "password",
+  "username": "test",
+  "password": "Xp2Dh3KF9C_67Ge4V'D!~R9{n"
+}
+
+###
+
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+  "grant_type": "refresh_token",
+  "refresh_token": ""
+}
+
+###
+POST http://localhost:4000/external/job
+Content-Type: application/json
+Authorization: Bearer hfNbY3qpIkd6kY45QCF4ta34E9idX+mxbslesqxgaGhu74MuPmqacwH+DPVYDaPNaTkC1QHHwMfYUTt6y+s8x/Ps35lK7RKqMQjSmq4HFVibvnJooS6WWyBozT05wTzENlQf0bDMsXrOwIwGBqp7TWsm3WxI0wTy7eby5So29XSe/LEZu+j4u1UDV4rIcyixV+I1i/fKlikaMESNhBcOlXYapXeOuwPcmA96VsymK3i0EP3sqXUntq3ERbAPu1yXelmihHJt03zDc8VDdZIdoHUn21jXn/qYjVlVZUazO8xRDnhEPYBV5/j3LTBuhZ3II5hoEEFes+eObtWpbiy4BuJ27A==
+
+{
+  "homeOwner": {
+    "firstName": "TJ",
+    "lastName": "006",
+    "streetNumber": "548",
+    "streetName": "West 22nd Street",
+    "city": "New York",
+    "state": "New York",
+    "zip": "10011",
+    "latitude": 40.747812,
+    "longitude": -74.007014
+  },
+  "salesRep": {
+    "companyName": "Co. Name",
+    "firstName": "Rep",
+    "lastName": "Name",
+    "email": "rep@domain.com",
+    "mobile": "123 123 1234"
+  },
+  "currentMaterial": "Clay Tile",
+  "newRoofingMaterial": "Concrete Tile",
+  "lowSlope": true,
+  "currentMaterialLowSlope": "Rolled Roofing",
+  "newRoofingMaterialLowSlope": "Coating",
+  "redeck": true,
+  "layers": 3,
+  "layer2Material": "Rolled Roofing",
+  "layer3Material": "Wood Shakes",
+  "webhookURL": "https://domain.com/url-to-post-job-status-update",
+  "measurementType": "PrimaryStructureOnly",
+  "externalID": "1234578910"
+}
+
+###
+
+GET http://localhost:4000/external/job/80caf672-c054-4708-9695-68640536a06c
+Authorization: Bearer 1kJHGz2ojaIjfDLBN0mw8Y56eNPuQJv5dkKFaj59YzJu74MuPmqacwH+DPVYCPGbO2sAhlnHwcfdVjt6mec3x/PqiZ5KuUH+MljbyKsLSwjIvnJooS6WWyBozT05wT3EN1Qf0rzMsXrOw4MGAq57SGch024rqwr8qvv6/DEh41io+/0Bt+78t10DV4rIcyixV+I1l/mLhz4bMU+XmR8D224C9GyGrRiQ0Q8lF9C1ISrrEIa+gUYinKTDVPxXuxPZeFyunj0kimTZIc1mVYN23nUrzQnRnvuYhkdTLEDldZsaD3UNPshWseb0YjQ6ipiXI85vR0NN9+nRNo6tcn7nBo12xDjS
+Accept: application/json
+
+
+###
+POST http://localhost:4000/FileDelivery?RefId=5455720d-0ada-4ccb-b450-7cfa2b44991e
+Content-Type: multipart/form-data; boundary=FilesBoundary
+
+--FilesBoundary
+Content-Disposition: form-data; name="file"; filename="dummy.pdf"
+Content-Type: application/json
+
+< ./dummy.pdf
+--FilesBoundary--

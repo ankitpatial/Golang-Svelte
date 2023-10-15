@@ -1,0 +1,20 @@
+extend type Query {
+    overview(f: Filter!): Overview! @authorize(roles: [ADMIN])
+}
+
+enum Filter {
+    BY_REGION
+    BY_STATE
+}
+
+type Overview {
+    id: Filter!
+    total: Int!
+    items: [OverviewItem]
+}
+
+type OverviewItem {
+    id: String!
+    name: String!
+    count: Int!
+}

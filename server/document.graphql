@@ -1,0 +1,110 @@
+extend type Mutation {
+    """ document upload url """
+    documentUploadUrl(doc: InputDocument!): Document! @authorize(roles: [ADMIN])
+    """ public upload url """
+    publicDataUploadUrl(entityID: ID!, section: PublicDataSection!, doc: InputFile!): Document! @authorize
+    """ company doc upload url """
+    partnerDocUploadUrl(partnerID: ID!, section: DocumentSection!, doc: InputFile!): Document! @authorize
+    """ job doc upload url """
+    jobDocUploadUrl(jobID: ID!, section: DocumentSection!, doc: InputFile!): Document! @authorize
+    """ survey docs"""
+    surveyDocUploadUrl(surveyID: ID!, section: DocumentSection!, doc: InputFile!): Document! @authorize
+    """ delete a document from storage and db """
+    deleteDoc(id: ID!): Boolean! @authorize(roles: [ADMIN])
+}
+
+extend type Query {
+    """doc view url"""
+    viewDocURL(docID: String!): String! @authorize
+    """ all job docs """
+    jobDocs(jobID: ID!): [Document]! @authorize
+    """ all job docs byt section """
+    jobDocsBySection(jobID: ID!):[SectionDocs!]! @authorize
+    """ all survey docs """
+    surveyDocs(surveyID: ID!): [Document]! @authorize
+}
+
+enum DocumentFolder @goModel(model: "roofix/pkg/enum.DocFolder")  {
+    PartnerDocs
+    JobDocs
+    TrainingVideos
+    PublicData
+    Survey
+}
+
+enum DocumentSection @goModel(model: "roofix/pkg/enum.DocSection")  {
+    Docs
+    InspectionDocs
+    ProductionPics
+    PricingPDF
+    Proposal
+    Proof
+    Logo
+    Avatar
+    Image
+    Video
+}
+
+enum PublicDataSection @goModel(model: "roofix/pkg/enum.DocSection")  {
+    Logo
+    Avatar
+    Image
+}
+
+enum JobDocSection  @goModel(model: "roofix/pkg/enum.DocSection")  {
+    Docs
+    InspectionDocs
+    ProductionPics
+    PricingPDF
+}
+
+input InputDocument @goModel(model: "roofix/pkg/document.Input") {
+    folder: DocumentFolder!
+    dir: String!
+    section: DocumentSection!
+    name: String!
+    fileName: String!
+    contentType: String
+    contentSize: Int64!
+    overwrite: Boolean!
+}
+
+input InputFile  {
+    name: String!
+    fileName: String!
+    contentType: String
+    contentSize: Int64!
+}
+
+type Document @goModel(model: "roofix/pkg/document.Info") {
+    id: ID!
+    key: String!
+    name: String!
+    section: String!
+    filename: String!
+    contentType: String
+    contentSize: Int64!
+    ready: Boolean!
+    uploadUrl: String
+    publicUrl: String
+    meta: Any
+    createdAt: Time
+    updatedAt: Time
+}
+
+type DocumentInfo @goModel(model: "roofix/pkg/document.InfoShort") {
+    id: ID!
+    key: String!
+    name: String!
+    contentType: String
+    contentSize: Int64
+    url: String!
+    ready: Boolean!
+    createdAt: Time
+}
+
+
+type SectionDocs {
+    section: JobDocSection!
+    docs: [DocumentInfo!]!
+}

@@ -1,0 +1,68 @@
+{
+  "eventType": "Send",
+  "mail": {
+    "timestamp": "2022-10-19T08:01:11.080Z",
+    "source": "Roofix Stage [No Reply] <no-reply@roofixstaging.com>",
+    "sourceArn": "arn:aws:ses:us-east-1:655143700202:identity/roofixstaging.com",
+    "sendingAccountId": "655143700202",
+    "messageId": "01000183ef42b9a8-b1e6ba1d-05b7-4da3-af37-eaa0504e651b-000000",
+    "destination": [
+      "dummy@simsaw.com"
+    ],
+    "headersTruncated": false,
+    "headers": [
+      {
+        "name": "From",
+        "value": "\"Roofix Stage [No Reply]\" <no-reply@roofixstaging.com>"
+      },
+      {
+        "name": "To",
+        "value": "dummy@simsaw.com"
+      },
+      {
+        "name": "Subject",
+        "value": "Your Roofix account password"
+      },
+      {
+        "name": "MIME-Version",
+        "value": "1.0"
+      },
+      {
+        "name": "Content-Type",
+        "value": "text/html; charset=UTF-8"
+      },
+      {
+        "name": "Content-Transfer-Encoding",
+        "value": "quoted-printable"
+      }
+    ],
+    "commonHeaders": {
+      "from": [
+        "\"Roofix Stage [No Reply]\" <no-reply@roofixstaging.com>"
+      ],
+      "to": [
+        "dummy@simsaw.com"
+      ],
+      "messageId": "01000183ef42b9a8-b1e6ba1d-05b7-4da3-af37-eaa0504e651b-000000",
+      "subject": "Your Roofix account password"
+    },
+    "tags": {
+      "ses:operation": [
+        "SendEmail"
+      ],
+      "ses:configuration-set": [
+        "mail-config"
+      ],
+      "ses:source-ip": [
+        "34.198.200.14"
+      ],
+      "ses:from-domain": [
+        "roofixstaging.com"
+      ],
+      "ses:caller-identity": [
+        "mailerFn-role"
+      ]
+    }
+  },
+  "send": {}
+}

@@ -1,0 +1,84 @@
+extend type Mutation {
+    """hold a survey slot to reserve"""
+    surveyRequest(date: String! slotID: ID!): ID! @authorize
+    """reserve a survey slot"""
+    surveyReserve(input: SurveyInput!): Survey! @authorize
+}
+
+extend type Query {
+    """ survey schedule for given data """
+    surveySlotAvailability(date: String!): [SurveySlot!] @authorize
+    """ get survey by id """
+    surveyDetails(id: ID!): Survey @authorize
+    """ surveys list """
+    surveys(
+        progress: SurveyProgress
+        search: String
+        betweenDates: [String!]
+        page: PageInput!,
+        orderBy: SurveyOrder
+    ):SurveyConnection! @authorize
+}
+
+enum SurveyStatus @goModel(model: "roofix/pkg/enum.SurveyStatus") {
+    REQUESTING
+    REQUESTED
+    IN_PROGRESS
+    COMPLETED
+}
+
+enum SurveyProgress @goModel(model: "roofix/pkg/enum.SurveyProgress") {
+    SCHEDULED
+    EN_ROUTE
+    ON_SITE
+    COMPLETED
+    DOCS_UPLOADED
+}
+
+enum SurveyOrderField {
+    CREATED
+}
+
+input SurveyInput {
+    id: ID!
+    name: String!
+    phoneNumber: String!
+    address: String!
+    notes: String
+}
+
+input SurveyOrder {
+    direction: OrderDirection!
+    field: SurveyOrderField
+}
+
+type SurveyConnection {
+    totalCount: Int!
+    pageInfo:   PageInfo!
+    edges:     [SurveyEdge!]
+}
+
+type SurveyEdge {
+    node:   Survey
+    cursor: Cursor
+}
+
+type Survey {
+    id: ID!
+    date: String!
+    slot: String!
+    from: Time!
+    to: Time!
+    name: String
+    phone: String
+    address: String
+    notes: String
+    status: SurveyStatus!
+    progress: SurveyProgress
+}
+
+type SurveySlot {
+    id: ID!
+    name: String!
+    available: Boolean!
+}

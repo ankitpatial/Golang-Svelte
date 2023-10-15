@@ -1,0 +1,88 @@
+extend type Mutation {
+    """
+    partner, create primary contact
+    """
+    savePartnerContacts(partnerID: ID!, contacts: [PartnerContactInput!]!): [PartnerContact!]! @authorize
+    """
+    save a partner contact
+    """
+    savePartnerContact(partnerID: ID!, contact: PartnerContactInput!): Boolean! @authorize
+    """
+    set user password reset email instruction
+    """
+    partnerContactSendPwdResetEmail(partnerID: ID!, userID: ID!): Boolean! @authorize
+}
+
+extend type Query {
+    """
+    query partner contacts
+    """
+    partnerContacts(partnerID: ID!, search: String, page: PageInput!): ContactConnection
+}
+
+enum PartnerContactRole @goModel(model: "roofix/pkg/enum.PartnerContactRole") {
+    ADMIN
+    SALES_REP
+}
+
+enum PartnerContactType @goModel(model: "roofix/pkg/enum.PartnerContact") {
+    PRIMARY
+    OPERATIONS
+    INVOICING
+    ACCOUNTING
+    CUSTOMER_SERVICE
+    CUSTOM
+}
+
+input PartnerContactInput @goModel(model: "roofix/pkg/partner.ContactUserInput") {
+    id: ID
+    type: PartnerContactType!
+    role: PartnerContactRole
+    accountStatus: AccountStatus
+    userID: ID
+    firstName: String!
+    lastName: String!
+    phone: String!
+    email: String!
+    otherEmail: String
+    title: String
+    description: String
+}
+
+type ContactConnection {
+    totalCount: Int!
+    pageInfo:   PageInfo!
+    edges:     [PartnerContactEdge!]
+}
+
+type PartnerContactEdge {
+    cursor: Cursor
+    node:   PartnerContact
+}
+
+type PartnerContact {
+    id: ID!
+    userID: ID!
+    createdAt: Time!,
+    type: PartnerContactType,
+    role: PartnerContactRole,
+    accountStatus: AccountStatus,
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String
+    otherEmail: String
+    picture: String
+    title: String
+    description: String
+}
+
+type PartnerContactInfo @goModel(model: "roofix/pkg/account.UserPartnerInfo") {
+    id: ID!
+    type: PartnerType!
+    partnerName: String!
+    status: PartnerStatus!
+    contactType: PartnerContactType
+    role: PartnerContactRole
+    mobileAppSettings: MobileAppSettings!
+}

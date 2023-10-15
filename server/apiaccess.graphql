@@ -1,0 +1,53 @@
+extend type Mutation {
+    """ api access save """
+    saveApiAccess(input: ApiAccessInput!): Boolean! @authorize(roles: [ADMIN])
+    """ update api access key """
+    updateApiAccessKey(id: ID! key: String!): Boolean! @authorize(roles: [ADMIN])
+    """ update api access secret """
+    updateAPIAccessSecret(id: ID! secret: String!): Boolean! @authorize(roles: [ADMIN])
+}
+
+extend type Query  {
+    """ api access list"""
+    apiAccess(search: String, page: PageInput!): ApiAccessConnection @authorize(roles: [ADMIN])
+}
+
+enum ApiAccessOrderField {
+    CREATED
+}
+
+input ApiAccessInput @goModel(model: "roofix/pkg/apiaccess.Input") {
+    id: ID!
+    name: String!
+    url: String!
+    username: String
+    password: String
+    key: String
+    secret: String
+}
+
+input ApiAccessOrder {
+    direction: OrderDirection!
+    field: ApiAccessOrderField
+}
+
+type ApiAccessConnection {
+    edges:     [ApiAccessEdge!]
+    pageInfo:   PageInfo!
+    totalCount: Int!
+}
+
+type ApiAccessEdge {
+    node:   ApiAccess
+    cursor: Cursor
+}
+
+type ApiAccess implements Node{
+    id: ID!
+    url: String!
+    username: String
+    password: String
+    key: String
+    secret: String
+}
+

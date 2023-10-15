@@ -1,0 +1,4 @@
+{
+  "name": "job-progress",
+  "main": "JobProgress.svelte"
+}

@@ -1,0 +1,27 @@
+extend type Query {
+    """ zip & product pricing info """
+    getPricing: ProductPricing! @authorize(roles: [ADMIN])
+}
+
+type ProductPricing {
+    id: String!
+    items: [Price!]
+    products: [Product!]
+}
+
+type Price @goModel(model: "roofix/pkg/pricing.ProductPrice") {
+    id: ID!
+    country: String!
+    state: String!
+    stateAbr: String!
+    zip: String!
+    city: String!
+    productId: Int!
+    price: Float!
+    pricePer: String!
+}
+
+type Product @goModel(model: "roofix/pkg/pricing.ProductInfo") {
+    id: Int!
+    name: String!
+}

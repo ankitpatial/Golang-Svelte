@@ -1,0 +1,24 @@
+<!--
+  ~ Copyright (c) Simsaw Software Pvt. Ltd. 2023.
+  ~ Author: Ankit Patial <ankit@simsaw.com>
+  -->
+
+<p>
+    Dear, <strong>{{.name}}</strong>
+</p>
+<p>
+    Following is the list of job(s) by partner those were un-assigned due to no progress made on it.
+</p>
+
+{{range $p := .list}}
+<strong>{{$p.Name}}</strong>
+{{range $val := $p.Jobs}}
+<p style="margin-left: 8px">
+    <i>{{$val.Owner}}</i><br>
+    <i>{{$val.Address}}</i><br>
+    <a href='{{$.siteURL}}/jobs/unassigned/{{$val.ID}}' target='_blank' rel='noopener noreferrer'>click to view</a>
+</p>
+{{end}}
+{{end}}
+
+

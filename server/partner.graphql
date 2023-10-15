@@ -1,0 +1,226 @@
+extend type Mutation {
+    """ save partner basic detail """
+    savePartner(input: PartnerInput!): Boolean! @authorize
+    """ save partner basic detail """
+    invitePartner(input: InvitePartnerInput!): Invite! @authorize(roles: [ADMIN])
+    """ set partner active status as true or false """
+    setPartnerActive(partnerID: ID!, value: Boolean!): Boolean! @authorize(roles: [ADMIN])
+    """ save operations detail """
+    savePartnerOperations(partnerID: ID!, inp: PartnerOperationInput!): Boolean! @authorize
+    """ steps completed in save-partner process"""
+    savePartnerCompletedSteps(partnerID: ID!, step: Int!, done: Boolean): Boolean! @authorize
+    """save partner work state"""
+    saveServiceState(partnerID: ID!, state: String!, licNo: String, expDate: Time, proofDocID: String): Boolean! @authorize
+    """save partner work city"""
+    saveServiceCity(partnerID: ID!, postalID: ID!, active: Boolean, licNo: String, proofDocID: String): Boolean! @authorize
+    """save partner service"""
+    saveService(id: ID!, partnerID: ID!, service: Service!, active: Boolean!): Boolean! @authorize
+    """save partner lead time"""
+    saveLeadTime(partnerID: ID!, asphalt: String, metal: String, tile: String): Boolean! @authorize
+}
+
+extend type Query {
+    """ check if a partner with same name already exists """
+    partnerNameAvailable(id: ID!, name: String!, type: PartnerType!): Boolean! @authorize
+    """ get partner detail by its ID """
+    partner(id: ID!, type: PartnerType): Partner! @authorize
+    """ get partner detail by its ID """
+    partnerDocs(partnerID: ID!, section: DocumentSection!):[Document!]! @authorize
+    """ partners list"""
+    partners(search: String, partnerType: PartnerType, status: String, page: PageInput!): PartnerConnection! @authorize(roles: [ADMIN])
+    """ partner service states """
+    partnerServiceStates(partnerID:  ID!):[ServiceState!]! @authorize
+    """ list of partner services """
+    partnerServices(partnerID:  ID!):[PartnerService!]! @authorize
+    """
+    Partner Finance & EPC options
+    """
+    partnerOptions(partnerID: ID!): [Options]
+}
+
+enum PartnerOrderField {
+    CREATED
+}
+
+enum PartnerType @goModel(model: "roofix/pkg/enum.Partner"){
+    ROOFING
+    SOLAR
+    EPC
+    INTEGRATION
+}
+
+enum PartnerStatus @goModel(model: "roofix/pkg/enum.PartnerStatus") {
+    Active
+    InActive
+    Onboarding
+    OnboardingDone
+}
+
+enum CompanyDocName {
+    W9
+    GENERAL_LIABILITY
+    WORKERS_COMPENSATION
+}
+
+enum Service @goModel(model: "roofix/pkg/partner.Service") {
+    ASPHALT_SHINGLE_TEAR_OFF
+    ASPHALT_SHINGLE_OVERLAY
+    ASPHALT_SHINGLE_SMALL_REPAIRS
+    ROLLED_ASPHALT_TEAR_OFF
+    TAR_GRAVEL_REPAIRS
+    CONCRETE_TILE_REMOVER_REPLACE
+    CONCRETE_TILE_UNDER_ARRAY_ROOF_SWAPS
+    CONCRETE_TILE_SMALL_REPAIRS
+    SLATE_TILE_REMOVE_REPLACE
+    SLATE_TILE_UNDER_ARRAY_ROOF_SWAPS
+    SLATE_TILE_SMALL_REPAIRS
+    METAL_ROOF_REPAIRS
+    FLAT_ROOF_REPAIRS
+    ROOF_TRUSS_RETROFITS
+}
+
+enum EPCStatus {
+    None
+    Dealer
+    MultipleDealers
+    VerticallyIntegrated
+}
+
+input PartnerInput @goModel(model: "roofix/pkg/partner.BasicDetail") {
+    id: ID
+    type: PartnerType!
+    name: String!
+    address: String
+    latitude: Float
+    longitude: Float
+    website: String
+    isNationWide: Boolean
+    crewCount: Int
+    jobCapacity: Int
+    yearsInBusiness: Int
+}
+
+input PartnerOperationInput {
+    salesVolume: Int
+    financeOptions: [ID!]
+    epcOptions: [ID!]
+    downPayment: Int
+    pifDate: Int
+    installInHouse: Boolean
+}
+
+input PartnerOrder {
+    direction: OrderDirection!
+    field: PartnerOrderField
+}
+
+input InvitePartnerInput @goModel(model: "roofix/pkg/partner.Invite") {
+    id: ID!
+    type: PartnerType!
+    companyName: String!
+    contactID: String
+    userID: String
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String!
+}
+
+type Invite @goModel(model: "roofix/pkg/partner.Invite") {
+    id: ID!
+    type: PartnerType!
+    companyName: String!
+    contactID: String
+    userID: String
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String!
+    createdAt: Time
+}
+
+type PartnerConnection {
+    edges:     [PartnerEdge!]
+    pageInfo:   PageInfo!
+    totalCount: Int!
+}
+
+type PartnerEdge {
+    node:   Partner
+    cursor: Cursor
+}
+
+type Partner implements Node {
+    id: ID!
+    type: PartnerType!
+    createdAt: Time!,
+    name: String!
+    address: String
+    website: String
+    isNationWide: Boolean
+    contacts: [PartnerContact!]
+    crewCount: Int!
+    jobCapacity: Int!
+    yearsInBusiness: Int
+    setupStepsCompleted: Int!
+    isActive: Boolean!
+    asphaltLeadT: String
+    metalLeadT: String
+    tileLeadT: String
+    status: PartnerStatus!
+    salesVolume: Int,
+    financeOptions: [ID!],
+    downPayment: Int,
+    pifDate: Int,
+    installInHouse: Boolean,
+    epcOptions: [ID!],
+}
+
+
+type PartnerJob @goModel(model: "roofix/pkg/partner.Job") {
+    id: ID!
+    ownerFirstName: String!
+    ownerLastName: String!
+    streetNumber: String!
+    streetName: String!
+    city: String!
+    state: String!
+    region: String!
+    zip: String!
+    latitude: Float!
+    longitude: Float!
+    repFirstName: String!
+    repLastName: String!
+    repEmail: String!
+    repMobile: String!
+    companyName: String!
+    status: String!
+    statusAt: Time!
+    notes: String
+    price: Float
+}
+
+type ServiceState {
+    id: ID!
+    name: String!
+    licenseNo: String
+    licenseExpDate: Time
+    cities: [ServiceCity!]!
+    expand: Boolean!
+}
+
+type ServiceCity {
+    id: ID!
+    active: Boolean!
+    licenseNo: String
+    licenseProof:String
+    cityZip: String!
+    cityName: String!
+}
+
+type PartnerService {
+    id: ID!
+    service: Service!
+    description: String!
+    active: Boolean!
+}

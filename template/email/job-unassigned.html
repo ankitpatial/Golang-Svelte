@@ -1,0 +1,20 @@
+<!--
+  ~ Copyright (c) Simsaw Software Pvt. Ltd. 2023.
+  ~ Author: Ankit Patial <ankit@simsaw.com>
+  -->
+
+
+<p>
+    Dear, <strong>{{.partner}}</strong>
+</p>
+<p>
+    Following {{if .isMulti}}jobs are{{else}}job is{{end}} un-assigned due to no progress made.
+</p>
+
+{{range $val := .jobs}}
+<p>
+    <i>{{$val.Owner}}</i><br>
+    <i>{{$val.Address}}</i><br>
+</p>
+{{end}}
+

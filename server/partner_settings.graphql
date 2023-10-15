@@ -1,0 +1,20 @@
+extend type Mutation  {
+    savePartnerMobileSettings(id: ID!, inp: InputMobileAppSettings!): Boolean!
+}
+
+
+extend type Query  {
+    partnerMobileSettings(id: ID!): MobileAppSettings!
+}
+
+input InputMobileAppSettings {
+    logoURL: String
+    primaryColor: String
+    hideTabs: [String!]
+}
+
+type MobileAppSettings @goModel(model: "roofix/pkg/model.MobileAppSettings") {
+    logoURL: String!
+    primaryColor: String!
+    hideTabs: [String!]!
+}

@@ -1,0 +1,61 @@
+POST https://webservices-integrations.eagleview.com/Token
+Authorization: Basic 4e32f2e1-b8c0-417d-a991-12875db63e8e sljaphas9wuchaTe1axe2956rUch6blyaw8athewl54d6AvuChlsukur2Baprosp
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=JWaleTest@eagleview.com&password=EagleView@100
+
+###
+
+
+GET https://webservices-integrations.eagleview.com/v2/Product/GetAvailableProducts
+Authorization: Bearer p9md9rwmM5MOLJkhO4BB0frlLiGygPDd-9Ifyo41Gx2GwSt1qsbtg3nirgYgo9ieZeQXK9BxL8GXl_x8gZzPp1BdowxERieW1Nv4KgiF30cTcVJOd8bCSeFqwsfrks4LS2eENoMtSYOYg3HzsKeoskk5iWZWixlZ5eWCCxugCyFOyNix_DeRGfunRD0CzVUU-VP2XjUuShw-HFEqRdumMjFGse8o4d91PPnUr2i-c33GqRZUGiuiZXask2rKVmCzjBP_wZ98IYxFhyCCSWPqxL5afsq8Vx3Vo6qxOj0RfCN_QFZQf38Xgk1MRAqgsWtZ_ltmHLqL8VqAddfPft1b1V1sVDrLAYdU8Pd5V_kkGVRzrqTz0uPDzIwuqlNmdUvX-8QYiszUPLQIwhVC_SaXfGlu2DEl1n4UNipSNkw_V_DDL6WyuIW-3XCFU4hacxe0-5sBDEwdqTEbqoOl-LPReYVW3W0LdWC-dDFvWUAjuxAXWaoBQtwpZpA0Odx6P6O7oPvHPZTPYoEafvFO3FmZfl71EWHclhlVwOFcCvwzRzhIfSaLggsf8WweUNc4x8LHeDb9Dzj4VXA1eUmdnEYsFj-OO5FcqTUYtWIBC9WjncUhpUsocqzQkmKmfi0BtE5UJ_XrCA
+
+###
+POST https://webservices-integrations.eagleview.com/v2/Order/PlaceOrder
+Authorization: Bearer GJUrAqBTvKsfYlwGYzcDlkTbuoxY_Zzf9VSLjLS_PrjcATfqUToUaCFk4V2i-nuJi_x2Q8-FK6g_jcaFINyWIzTztoOQJKPYzXs8UDtEyRcyQWgFugZsc1QFlOgM7XFobwUYTTKb7rz_EQmdtQ97W0_yFJvKFf9SgYAypzaK14koWJruCeUxt_BCHhr6-iH9ItxmB1aNiybr76TUVdnkNUyZe9stwRQAI27Bt2fGZdWSgW-yH24wcAP5MO3D-JYm1pI92QJ3fWzZANnBkCTMTvugEhDl2jFrX1vVKW6QqkKJ4vRGKGsNz41_-K656-PoqLfbryUH8YeShbxWl2snDIh8qkdyQstR4P0JdlgdhduZY9J9qsGDkP8lJDuTJesvjGKDjCW-PCNnhqiEyBxLuV1VchP-Ii_eRaqLbClS9PoSvU6LfhY3yN_TBxK3rbuCCaO9dQqulv6t_8UHl6m97eVbxHbJp8ZALjM6AHVeVQHZy3XgeQbpz2xipSdRTzss4YedF4OQIqfUA-JEv-U3sBkaLjUCyJqgdzZq2f0TYqGd65CudIWJNiAW6DuFhjez-G705pCkdTzkmklK55Je5aS1FreiZ29K-bNkNFdQLqjBeqJDLQ8FDm39IL1Qa2_8cAlX1Q
+Content-Type: application/json
+
+{
+  "OrderReports": [
+    {
+      "ReportAddresses": [
+        {
+          "Address": "1135 Chino St Apt. B",
+          "City": "Santa Barbara",
+          "State": "CA",
+          "Zip": "93101",
+          "Country": "United States",
+          "Latitude":34.412008,
+          "Longitude": -119.713554,
+          "AddressType": 4
+        }
+      ],
+      "PrimaryProductId": 44,
+      "DeliveryProductId": 45,
+      "MeasurementInstructionType": 1,
+      "ChangesInLast4Years": false,
+      "ReferenceId": "refid"
+    }
+  ]
+}
+
+###
+GET https://webservices-integrations.eagleview.com/v3/Report/GetReport?reportId=49807225
+Authorization: Bearer 15woWLCmJRcNc4PIfGy4OTlj2NJoNF_IHgwX4_nyT4mQnuWYNzeLv_ab3AFakwm2cc431PsUqB7DMMDXjskHPCquEa5ZsdwTJorz-i5-b3iZYfak-L-jUyCCMcz5dnhbWrk06CP18CybTdffhflpQzpAh6s0fjm2kRFJ5dYMJziQVE7382R2_ZvgNNVzKrwH1PvcqVRoVv1BBv7gsqOXD2YSiKiDEc7rHHcLanrSN9Yj-V0whQNqxZ6j7ja1MEznSNB3vbGBkhKucAMtfY63isC_3iF4CWZv5678mXa4fwBJw3H6go4BWwJhueHqPvVSG1333FzHGDNFcbN9dO_Tz9pVfuzzwFCM-ktlDOK7ewb6CDpz5iOXhhAN98PKYXjtyd7OdOxHX_PQnebN6KulwdNFJSsxzYx293Detnis_CWoMXeOlt-Jrz-RGgrqP8CQtFOPbm5bZSAUYfN4xuXrPLOxs8LfPvaOMB9BsLSltYwe6PXvZupZroquzmHjjBNskc_fPBnufCfA6mO9MzsC2Z_eRH7QZXhgG7c3rwaV49_DYQfMOTnLl0Cs607z24DpA3Mipd6ETH6rc0P8ybkASaOAsrWfjU7xk3RaAbBd1f5efLSvCkKRQl0mMm_8C_4mgj-CdA
+Content-Type: application/json
+
+###
+GET https://webservices-integrations.eagleview.com/v2/Report/GetReport?reportId=43437705
+Authorization: Bearer 5UMcd0tce1oiAazxn5ljLFnv1_1KTAq2B5PwgFpp-MEe6H6y31F5vAo65wZEHXFsS4ic09CZ7110tTb6FC62pf0vgwqZtRnsZgNZ-mSP1lw2j56lfum6orYBDJc-BH_dyVJdfX-Q4sQJWL3wqAzkTEfOT5bsogqjA7UhB8OW5NtNKmHFF_cwwRN2bMU4K6fJcVRNzHUOjMAe0QAKfEBgllc6ZnVPogS5XZR1muD90d3W0PCQcN9fRJbMwKQ-apBa6FPC9Qdrqc9CXIZHyZuSef1tBILGtFi-qF_TZqdYNI9S5fmOG1pfo2jKcoW3c_SND7Gw_JXchEDft36qW-TSJ0UNw-heoWMhyKe26OBqkJCALFmi3eG5eR4WkJ0wvNm75B7YRWQa-GVT_4FtIcWx04HezCwDoS1qTF05zjyfdCUkneszmFZi5FEDbir2gCzMzv61thC3Yuq9-Mo3Gu7WBYZiTqxdcHNrWIfJzAnnHMr0TzA4WvG2Y1EhH8Gi3vP7sLiAYFsUUPSV50aR53koNUTV6NIMxQHnjeYrVun120_Vo5W4LeHRB4DwkgeqRitBoeWwKQCf-AXq3FnR7L6mySXwMDPTPqL_Nfhu9Y3QAw7Lm4rxA7v87fJi02RqZ9dmeL4YqQ
+Content-Type: application/json
+
+###
+GET https://webservices-integrations.eagleview.com/v1/File/GetReportFile?reportId=43437705&fileType=2&fileFormat=2
+Authorization: Bearer 5UMcd0tce1oiAazxn5ljLFnv1_1KTAq2B5PwgFpp-MEe6H6y31F5vAo65wZEHXFsS4ic09CZ7110tTb6FC62pf0vgwqZtRnsZgNZ-mSP1lw2j56lfum6orYBDJc-BH_dyVJdfX-Q4sQJWL3wqAzkTEfOT5bsogqjA7UhB8OW5NtNKmHFF_cwwRN2bMU4K6fJcVRNzHUOjMAe0QAKfEBgllc6ZnVPogS5XZR1muD90d3W0PCQcN9fRJbMwKQ-apBa6FPC9Qdrqc9CXIZHyZuSef1tBILGtFi-qF_TZqdYNI9S5fmOG1pfo2jKcoW3c_SND7Gw_JXchEDft36qW-TSJ0UNw-heoWMhyKe26OBqkJCALFmi3eG5eR4WkJ0wvNm75B7YRWQa-GVT_4FtIcWx04HezCwDoS1qTF05zjyfdCUkneszmFZi5FEDbir2gCzMzv61thC3Yuq9-Mo3Gu7WBYZiTqxdcHNrWIfJzAnnHMr0TzA4WvG2Y1EhH8Gi3vP7sLiAYFsUUPSV50aR53koNUTV6NIMxQHnjeYrVun120_Vo5W4LeHRB4DwkgeqRitBoeWwKQCf-AXq3FnR7L6mySXwMDPTPqL_Nfhu9Y3QAw7Lm4rxA7v87fJi02RqZ9dmeL4YqQ
+Content-Type: application/json
+
+###
+GET https://webservices-integrations.eagleview.com/v3/Report/GetReport?reportId=43438490
+Authorization: Bearer 5UMcd0tce1oiAazxn5ljLFnv1_1KTAq2B5PwgFpp-MEe6H6y31F5vAo65wZEHXFsS4ic09CZ7110tTb6FC62pf0vgwqZtRnsZgNZ-mSP1lw2j56lfum6orYBDJc-BH_dyVJdfX-Q4sQJWL3wqAzkTEfOT5bsogqjA7UhB8OW5NtNKmHFF_cwwRN2bMU4K6fJcVRNzHUOjMAe0QAKfEBgllc6ZnVPogS5XZR1muD90d3W0PCQcN9fRJbMwKQ-apBa6FPC9Qdrqc9CXIZHyZuSef1tBILGtFi-qF_TZqdYNI9S5fmOG1pfo2jKcoW3c_SND7Gw_JXchEDft36qW-TSJ0UNw-heoWMhyKe26OBqkJCALFmi3eG5eR4WkJ0wvNm75B7YRWQa-GVT_4FtIcWx04HezCwDoS1qTF05zjyfdCUkneszmFZi5FEDbir2gCzMzv61thC3Yuq9-Mo3Gu7WBYZiTqxdcHNrWIfJzAnnHMr0TzA4WvG2Y1EhH8Gi3vP7sLiAYFsUUPSV50aR53koNUTV6NIMxQHnjeYrVun120_Vo5W4LeHRB4DwkgeqRitBoeWwKQCf-AXq3FnR7L6mySXwMDPTPqL_Nfhu9Y3QAw7Lm4rxA7v87fJi02RqZ9dmeL4YqQ
+Content-Type: application/json
+

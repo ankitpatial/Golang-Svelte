@@ -1,0 +1,18 @@
+###
+# ref: https://support.regrid.com/api/parcel-api-endpoints
+# url: https://app.regrid.com
+# https://test-roofix.regrid.com/settings/billing
+GET https://app.regrid.com/api/v1/search.json?token=q3rEBTjzpEVkklaAVISSb9BmKMpPffzjkD8OqbhwFABqkVAQTmMXUPNUouDE1aeO
+    &lat=40.7326328&lon=-82.52050576&strict=1&limit=1
+
+###
+GET https://app.regrid.com/api/v1/search.json?
+    token=q3rEBTjzpEVkklaAVISSb9BmKMpPffzjkD8OqbhwFABqkVAQTmMXUPNUouDE1aeO&lat=31.050970&lon=-98.086144&strict=1&limit=1
+
+###
+GET https://app.regrid.com/api/v1/search.json?token=q3rEBTjzpEVkklaAVISSb9BmKMpPffzjkD8OqbhwFABqkVAQTmMXUPNUouDE1aeO&
+    lat=31.050970&lon=-98.086691
+
+###
+GET https://app.regrid.com/api/v1/search.json?token=q3rEBTjzpEVkklaAVISSb9BmKMpPffzjkD8OqbhwFABqkVAQTmMXUPNUouDE1aeO&
+    lat=40.336820&lon=-82.065444&strict=1&limit=1

@@ -1,0 +1,103 @@
+extend type Mutation {
+    bookInstallation(type: InstallationType!, pkgID: ID!, productID: ID, owner: InstallationOwnerInput!): Boolean! @authorize
+    approveInstallation(input: InstallationApproveInput!): Boolean! @authorize
+    denyInstallation(id: ID!, reason: String!): Boolean! @authorize
+    undoDenyInstallation(id: ID!): Boolean! @authorize
+}
+
+extend type Query {
+    pendingInstallations(type: InstallationType!, approval: Approval,  search: String, betweenDates: [String!], page: PageInput!): InstallationJobConnection!
+    approvedInstallations(type: InstallationType!, status: InstallationStatus,  search: String, betweenDates: [String!], page: PageInput!): InstallationJobConnection!
+}
+
+enum InstallationType @goModel(model: "roofix/pkg/enum.InstallationType") {
+    SMART_HOME
+    HVAC
+}
+
+enum Approval @goModel(model: "roofix/pkg/enum.Approval") {
+    PENDING
+    APPROVED
+    DENIED
+}
+
+enum InstallationStatus @goModel(model: "roofix/pkg/enum.InstallationStatus"){
+    PENDING
+    NEW
+    SCHEDULED
+    INSTALLED
+}
+
+input InstallationApproveInput {
+    id: ID!
+    ownerEmail: String
+    ownerPhone: String
+    agree: Boolean
+}
+
+input InstallationOwnerInput {
+    name: String!
+    email: String!
+    phone: String!
+    address: String!
+    latitude: Float
+    longitude: Float
+    specialNote: String
+}
+
+input InstallationPackageInput {
+    name: String!
+    description: String!
+    features: [String!]
+    price: Float!
+    items: [InstallationPackageItemInput!]!
+}
+
+input InstallationPackageItemInput {
+    name: String!
+    description: String!
+    features: [String!]
+    specialNote: String
+}
+
+type InstallationJobConnection {
+    totalCount: Int!
+    pageInfo: PageInfo!
+    edges: [InstallationJobEdge!]
+}
+
+type InstallationJobEdge {
+    cursor: Cursor
+    node:   InstallationJob
+}
+
+type InstallationJob {
+    id: String!
+    ownerName: String!
+    ownerPhone: String!
+    ownerEmail: String
+    ownerAddress: String!
+    ownerAddressLat: Float
+    ownerAddressLng: Float
+    specialNote: String
+    pkg: String!
+    pkgDescription: String
+    pkgFeatures: [String!]
+    price: Float!
+    approval: Approval!
+    approvalAt: Time!
+    status: InstallationStatus!
+    statusAt: Time!
+    salesRep: Entity!
+    items: [InstallationJobItem!]
+    createdAt: Time!
+}
+
+type InstallationJobItem {
+    name: String!
+    description: String!
+    features: [String!]!
+    specialNote: String
+    price: Float!
+    imageURL: String!
+}

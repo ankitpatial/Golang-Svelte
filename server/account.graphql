@@ -1,0 +1,179 @@
+extend type Mutation {
+    login(input: LoginInput): LoginResult!
+    logout: Boolean! @authorize
+    """ creates a new  system user """
+    createUser(input: CreateUserInput): String!  @authorize(roles: [ADMIN])
+    updateUser(input: UpdateUserInput): Boolean!  @authorize(roles: [ADMIN])
+    """request reset password email"""
+    accForgotPwd(email: String!): Boolean!
+    """set user password"""
+    setUserPwd(userID: ID!, pwd: String!, confirmPwd: String!): Boolean! @authorize(roles: [ADMIN])
+    """set session user account password"""
+    setMyPwd(oldPwd: String!, pwd: String!, confirmPwd: String!): Boolean! @authorize
+    """update user profile info"""
+    updateProfile(input: InputUserProfile): Boolean! @authorize
+}
+
+extend type Query {
+    """check if user session is still alive"""
+    sessionAlive: Boolean!
+    me: SessionUser
+    """ user detail by its ID """
+    user(id: ID!) : User @authorize(roles:[ADMIN])
+    """ users list"""
+    users(page: PageInput!, where: UserWhereInput): UserConnection @authorize(roles:[ADMIN])
+    """ users search"""
+    usersSearch(search: String): [UserSearchResult] @authorize(roles:[ADMIN])
+    """ user email available"""
+    userEmailAvailable(id: String!, email: String!): Boolean! @authorize
+    """ search users in my company """
+    myCompanyUsers(search: String page: PageInput!): UserConnection @authorize
+
+    """get current ios app version"""
+    iosAppVersion:String!
+}
+
+enum Role @goModel(model: "roofix/pkg/enum.Role") {
+    NONE
+    ADMIN
+    SITE_USER
+}
+
+enum AccountStatus @goModel(model: "roofix/pkg/enum.AccountStatus"){
+    PENDING
+    ACTIVE
+    DISABLED
+    LOCKED
+}
+
+enum AuthProvider @goModel(model: "roofix/pkg/enum.AuthProvider") {
+    Roofix
+    GOOGLE
+    FB
+}
+
+input LoginInput @goModel(model: "roofix/pkg/account.LoginInput") {
+    email: String!
+    password: String!
+}
+
+
+input SetPasswordInput @goModel(model: "roofix/pkg/account.SetPasswordInput") {
+    token: String!
+    password: String!
+    confirmPassword: String!
+}
+
+
+type UserInfo @goModel(model: "roofix/ent.User") {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String
+    picture: String
+}
+
+type UserConnection {
+    edges:     [UserEdge!]
+    pageInfo:   PageInfo!
+    totalCount: Int!
+}
+
+type UserEdge {
+    node:   User
+    cursor: Cursor
+}
+
+type User implements Node{
+    id: ID!
+    email: String!
+    name: String
+    firstName: String!
+    lastName: String!
+    phone: String!
+    role: Role
+    status: AccountStatus,
+    picture: String,
+    note: String
+    partner: Entity
+}
+
+type UserSearchResult implements Node{
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String
+    partnerID: ID
+    partnerName: String
+    partnerContactTypeID: Int
+    partnerContactTitle: String
+}
+
+type LoginResult {
+    token: String!
+    user: SessionUser!
+}
+
+type SessionUser @goModel(model: "roofix/pkg/account.User") {
+    id: ID!
+    email: String!
+    firstName: String!
+    lastName: String!
+    role: Role!
+    status: AccountStatus!,
+    phone: String
+    picture: String
+    partner: PartnerContactInfo
+    token: String
+    isAdmin: Boolean!
+    isCompanyAdmin: Boolean!
+}
+
+type PartnerUser @goModel(model: "roofix/pkg/account.PartnerUser") {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String!
+    picture: String!
+    partnerName: String!
+    partnerUserType: PartnerContactType!
+    partnerUserRole: PartnerContactRole!
+}
+
+
+input CreateUserInput @goModel(model: "roofix/pkg/account.CreateUserInput") {
+    email: String!
+    firstName: String!
+    lastName: String!
+    phone: String
+    role: Role!
+    note: String
+}
+
+input UpdateUserInput @goModel(model: "roofix/pkg/account.UpdateUserInput") {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    phone: String
+    role: Role!
+    status: AccountStatus!
+    note: String
+}
+
+input InputUserProfile {
+    picture: String
+    firstName: String
+    lastName: String
+    phone: String
+    oldPwd: String
+    newPwd: String
+    confirmNewPwd: String
+}
+
+type UpdateProfileResponse {
+    picture: String
+}
+

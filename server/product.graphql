@@ -1,0 +1,119 @@
+extend type Mutation {
+    saveProductPackage(input: ProductPackageInput!): Boolean! @authorize(roles: [ADMIN])
+    saveProduct(input: ProductInput!): Boolean! @authorize(roles: [ADMIN])
+}
+
+extend type Query {
+    productPackages(category: ProductType, search: String, page: PageInput!): ProductPackageConnection! @authorize(roles: [ADMIN])
+    products(category: ProductType, search: String, page: PageInput!): ProductConnection! @authorize(roles: [ADMIN])
+    smartHomePackages(page: PageInput!): PackageConnection! @authorize
+    hvacPackages(page: PageInput!): PackageConnection! @authorize
+}
+
+enum ProductType @goModel(model: "roofix/pkg/enum.Product") {
+    HVAC
+    SMART_HOME
+}
+
+enum SoldAs @goModel(model: "roofix/pkg/enum.SoldAs") {
+    PACKAGE
+    INDIVIDUAL_ITEM
+}
+
+input ProductPackageInput {
+    id: ID!
+    category: ProductType!
+    soldAs: SoldAs!
+    name: String!
+    description: String!
+    price: Float!
+    features: [String!]!
+    productIDs: [ID!]!
+}
+
+input ProductInput {
+    id: ID!
+    imageID: ID!
+    category: ProductType!
+    name: String!
+    description: String!
+    price: Float!
+    features: [String!]!
+    specialNote: String
+}
+
+type ProductPackageConnection {
+    totalCount: Int!
+    pageInfo:   PageInfo!
+    edges:     [ProductPackageEdge!]
+}
+
+type ProductPackageEdge {
+    cursor: Cursor
+    node:   ProductPackage
+}
+
+type ProductPackage{
+    id: ID!
+    name: String!
+    category: ProductType!
+    soldAs: SoldAs!
+    description: String!
+    price: Float!
+    features: [String!]!
+    items: [ProductDetail!]!
+}
+
+#
+#
+type PackageConnection @goModel(model: "roofix/ent.ProductPackageConnection") {
+    totalCount: Int!
+    pageInfo:   PageInfo!
+    edges:     [PackageEdge!]
+}
+
+type PackageEdge @goModel(model: "roofix/ent.ProductPackageEdge"){
+    cursor: Cursor
+    node:   Package
+}
+
+type Package @goModel(model: "roofix/ent.ProductPackage"){
+    id: ID!
+    name: String!
+    category: ProductType!
+    soldAs: SoldAs!
+    description: String!
+    price: Float!
+    features: [String!]!
+    items: [ProductInfo!]!
+}
+#
+#
+
+type ProductConnection {
+    totalCount: Int!
+    pageInfo:   PageInfo!
+    edges:     [ProductEdge!]
+}
+
+type ProductEdge {
+    cursor: Cursor
+    node:   ProductInfo
+}
+
+type ProductInfo @goModel(model: "roofix/ent.Product") {
+    id: ID!
+    category: ProductType!
+    name: String!
+    description: String!
+    price: Float!
+    features: [String!]!
+    specialNote: String
+    image: Document!
+}
+
+type ProductDetail @goModel(model: "roofix/ent.Product") {
+    id: ID!
+    name: String!
+    image: Document!
+}

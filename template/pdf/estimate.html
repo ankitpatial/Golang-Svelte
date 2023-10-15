@@ -1,0 +1,83 @@
+<!--
+  ~ Copyright (c) Simsaw Software Pvt. Ltd. 2023.
+  ~ Author: Ankit Patial <ankit@simsaw.com>
+  -->
+<strong>{{.date}}</strong>
+<div class='mt-5 border-b'>
+    <div class='title float-left'>
+        Presented by
+    </div>
+    <div class='title mr-5 float-right'>
+        Presented for
+    </div>
+
+    <div class='clear'></div>
+</div>
+<div class='mt-5'>
+    <div class='float-left'>
+        Roofix Technologies, LLC <br>
+        Corporate HQ <br>
+        4809 Century Dr. <br>
+        Fort Worth, TX 76140 <br>
+        (855) 408-3428 <br>
+        support@rfx.services
+    </div>
+    <div class='float-right mr-5'>
+        {{.company}} <br>
+        {{.address}} <br>
+        {{.city}}, {{.state}} {{.zip}} <br>
+        {{.phone}}<br>
+        {{.email}}
+    </div>
+</div>
+
+<div class='clear'></div>
+<div class='mt-5'>
+    <div class='title border-b mt-8'>
+        Project Details
+    </div>
+    <ul class='mt-5 unstyle'>
+        <li>
+            Area Quoted: {{.area}}
+        </li>
+        <li>
+            Pitch Quoted: {{.pitch}}
+        </li>
+        <li>
+            Material Quoted: {{.material}}
+        </li>
+    </ul>
+</div>
+
+<div class='clear'></div>
+<div class='mt-5'>
+    <div class='title border-b mt-8'>
+        Scope of Work
+    </div>
+    <ul class='mt-5 list-inside'>
+        <li>Apply for and secure Permit (when required by city)</li>
+        <li>Remove Current Roofing System</li>
+        <li> Replace Existing Underlayment with Synthetic Underlayment</li>
+        <li>Install Ice and Water Shield at Penetrations</li>
+        <li>Install {{.material}}</li>
+        <li>Install Ridge Cap Material</li>
+        <li>Install Flashing as Needed</li>
+        <li>Install Required Ventilation</li>
+        <li>Inspections (when required by city)</li>
+        {{if .redeck}}
+            <li>Replace the existing Decking</li>
+        {{else}}
+            <li>Replace up to 100sf of Decking as Needed</li>
+        {{end}}
+    </ul>
+</div>
+
+<div class='clear'></div>
+<div class='mt-5'>
+    <div class='title border mt-8'>
+        Contract Price
+        <div class='float-right'>
+            {{.amount}}
+        </div>
+    </div>
+</div>

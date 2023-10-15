@@ -1,0 +1,465 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    /*  HEADINGS */
+    h1 {
+        @apply text-2xl;
+    }
+
+    h2 {
+        @apply text-xl;
+    }
+
+    h3 {
+        @apply text-lg;
+    }
+
+    h4 {
+        @apply text-sm;
+    }
+
+    h5 {
+        @apply text-xs;
+    }
+
+    h6 {
+        @apply text-xs font-bold;
+    }
+
+    p {
+        @apply text-base;
+    }
+
+    body {
+        @apply text-base;
+    }
+
+    small {
+        @apply font-normal;
+    }
+
+    label {
+        @apply text-xs font-medium;
+    }
+}
+
+@layer components {
+    /* ++++++++++++++++++++++++++++++++
+        GLOBAL CSS CUSTOMIZATION
+        copy this code for every new project and
+        change as per project requirements.
+        ++++++++++++++++++++++++++++++++ */
+    /* ----------------------- BUTTON:Sizes */
+    .btn {
+        @apply h-10 min-h-[2.5rem] font-normal;
+    }
+
+    .btn-xs {
+        @apply h-6 min-h-[1.5rem];
+    }
+
+    .btn-sm {
+        @apply h-8 min-h-[2rem];
+    }
+
+    .btn-lg {
+        @apply h-14 min-h-[3.5rem];
+    }
+
+    .btn-circle {
+        @apply h-10 min-h-[2.5rem] w-10 min-w-[2.5rem];
+    }
+
+    .btn-circle:where(.btn-xs) {
+        @apply h-6 min-h-[1.5rem] w-6 min-w-[1.5rem];
+    }
+
+    .btn-circle:where(.btn-sm) {
+        @apply h-8 min-h-[2rem] w-8 min-w-[2rem];
+    }
+
+    .btn-circle:where(.btn-lg) {
+        @apply h-14 min-h-[3.5rem] w-14 min-w-[3.5rem];
+    }
+
+    /* -------------------------------- FORM:sizes */
+    /* -------------------- input */
+    .input {
+        @apply h-10 min-h-[2.5rem];
+    }
+
+    .input-xs {
+        @apply h-6 min-h-[1.5rem];
+    }
+
+    .input-sm {
+        @apply h-8 min-h-[2rem];
+    }
+
+    .input-lg {
+        @apply h-14 min-h-[3.5rem];
+    }
+
+    /* -------------------- select */
+    .select {
+        @apply h-10 min-h-[2.5rem];
+    }
+
+    .select-sm {
+        @apply h-8 min-h-[2rem];
+    }
+
+    /* ++++++++++++++++++++++++++++++++  /END GLOBAL */
+    /* ----------------------- THEME COMPONENT:BUTTON(behaviour) */
+    .btn-square {
+        @apply rounded-md transition-all ease-in-out duration-300;
+    }
+
+    .btn-ghost {
+        @apply bg-transparent border-0 text-black;
+    }
+
+    .btn-primary {
+        @apply text-white px-10;
+    }
+
+    .btn-secondary {
+        @apply text-white;
+    }
+
+    .btn-outline {
+        @apply text-sm border-accent hover:text-black hover:bg-accent-content hover:border-accent-focus transition-all ease-in-out duration-300;
+    }
+
+    .link {
+        @apply no-underline text-primary;
+    }
+
+
+    /* ----------------------- THEME COMPONENT:form input */
+    .input, .select {
+        @apply focus:outline-none normal-case focus:border-primary focus:shadow-sm;
+    }
+
+    .input {
+        @apply placeholder:italic placeholder:lowercase placeholder:font-normal
+    }
+
+    .input[disabled], .input[disabled],
+    .select[disabled], .select[disabled]{
+        @apply bg-slate-50 text-slate-400/60 border-slate-100;
+    }
+
+    /* -------------------- checkbox */
+    .checkbox {
+        @apply rounded-md ;
+    }
+
+    /* -------------------- table */
+    table.table-xs :where(tfoot) :where(th, td) {
+        @apply bg-transparent;
+    }
+
+    .table:where(.table-xs) thead th {
+        @apply text-xs bg-accent-focus/20 py-3;
+    }
+
+    .table tr:hover td {
+        @apply bg-blue-50 text-black;
+    }
+    .table tr:hover {
+        @apply border-b-black/20;
+    }
+
+    .table th {
+        @apply sticky top-0 text-xs uppercase;
+        /* position: sticky;
+        top: 0;  Don't forget this, required for the stickiness */
+        /*box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);*/
+    }
+    .table tr.active, .table tr.active:nth-child(even), .table-zebra tbody tr:nth-child(even) {
+        @apply bg-slate-50;
+    }
+
+    /* ----------------------- /END THEME COMPONENT(behaviour) */
+    /* -------------------------------- CARD */
+    .card {
+        @apply shadow-md ring-1 ring-blue-500/10;
+    }
+
+    .card-body {
+        @apply p-4;
+    }
+
+    /* -------------------------------- Badges */
+    .alert-info, .badge-info {
+        @apply text-blue-700 bg-blue-100;
+    }
+
+    .alert-success, .badge-success {
+        @apply text-green-700 bg-green-100;
+    }
+
+    .alert-warning, .badge-warning {
+        @apply text-amber-700 bg-amber-100;
+    }
+
+    .alert-error, .badge-error {
+        @apply text-red-700 bg-red-100;
+    }
+
+    /* -------------------------------- Badges */
+    .steps .step:before {
+        height: 0.1rem;
+    }
+
+    .steps.steps-vertical .step:before {
+        height: 100%;
+        width: 0.2rem;
+    }
+
+    .steps .step-primary + .step-primary:before, .steps .step-primary:after,
+    .steps.steps-vertical .step-primary + .step-primary:before, .steps.steps-vertical .step-primary:after{
+        @apply font-bold text-white text-lg;
+    }
+
+    .steps, .steps a {
+        @apply text-sm;
+    }
+
+    /* -------------------------------- ACCORDION */
+    .collapse-title, :where(.collapse > input[type="checkbox"]) {
+    min-height: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+
+/* MODIFIED: Drawer behaviour  02 Aug 2022, 13:51*/
+
+
+/* device: mobile */
+.drawer > .drawer-toggle ~ .drawer-side > div {
+    width: 5rem;
+}
+
+.drawer-toggle ~ .drawer-side > .drawer-overlay + * {
+    --tw-translate-x: -100%;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transition-property: all;
+    transition-duration: .3s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+
+.drawer > .drawer-toggle ~ .drawer-side > .drawer-overlay + * ul li span,
+.drawer > .drawer-toggle ~ .drawer-side > div > div a span,
+.drawer-overlay + * .dropdown div:last-child,
+.drawer > .drawer-toggle ~ .drawer-side > .drawer-overlay + * h6 span {
+    display: none;
+}
+
+/* content right */
+.drawer > .drawer-toggle ~ .drawer-content {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+/* device: tablet/ small screen */
+@media (min-width: 640px) {
+    /* content left */
+    .drawer > .drawer-toggle ~ .drawer-side > div {
+        width: 5rem;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    }
+
+    .drawer-toggle ~ .drawer-side > .drawer-overlay + * {
+        --tw-translate-x: 0;
+    }
+
+    .drawer > .drawer-toggle ~ .drawer-side .menu a,
+    .drawer-overlay + * .dropdown,
+    .drawer-overlay + * .dropdown div {
+        white-space: nowrap;
+    }
+
+    .drawer > .drawer-toggle ~ .drawer-side > .drawer-overlay + * ul li span,
+    .drawer-overlay + * .dropdown div:last-child {
+        display: none;
+    }
+
+    .drawer > .drawer-toggle ~ .drawer-side > div > div a span {
+        display: block;
+        width: 20px;
+        overflow: hidden;
+    }
+
+    .drawer > .drawer-toggle ~ .drawer-side:hover > div > div a span {
+        width: auto;
+    }
+
+
+    /* content right */
+    .drawer > .drawer-toggle ~ .drawer-content {
+        margin-left: 5rem;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    }
+    .drawer-side {
+        pointer-events: all;
+        visibility: visible;
+    }
+}
+
+/* device: Default view, Desktop upto large */
+@media (min-width: 1024px) {
+    .drawer > .drawer-toggle ~ .drawer-side > div {
+        width: 17rem;
+    }
+
+    .drawer-toggle ~ .drawer-side > .drawer-overlay + * {
+        --tw-translate-x: 50px;
+    }
+
+    .drawer > .drawer-toggle ~ .drawer-side > .drawer-overlay + * ul li span,
+    .drawer > .drawer-toggle ~ .drawer-side > div > div a span,
+    .drawer > .drawer-toggle ~ .drawer-side > .drawer-overlay + * h6 span {
+        display: block;
+    }
+
+    .drawer > .drawer-toggle ~ .drawer-side > div > div a span {
+        width: auto;
+    }
+
+    .drawer-overlay + * .dropdown div:last-child {
+        display: flex;
+    }
+
+    /* content right */
+    .drawer > .drawer-toggle ~ .drawer-content {
+        margin-left: 0;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    }
+    /*.drawer-side {*/
+    /*    pointer-events: all;*/
+    /*    visibility: visible;*/
+    /*}*/
+}
+/* left bar: expand on hover */
+/*.drawer-toggle ~ .drawer-content {*/
+/*    z-index: 0;*/
+/*    grid-column-start: 1;*/
+/*    grid-row-start: 1;*/
+/*    overflow-y: auto;*/
+/*    transition-property: all;*/
+/*    transition-duration: .3s;*/
+/*    transition-timing-function: cubic-bezier(.4,0,.2,1);*/
+/*}*/
+.drawer-side > div:hover {
+    width: 17rem !important;
+}
+
+.drawer-side > div:hover > ul li span,
+.drawer-side > div:hover > div a span,
+.drawer-side > div:hover * .dropdown div:last-child {
+    display: flex !important;
+}
+
+
+
+/*  INPUT CHECKED STATE */
+/* --------------------  LeftBar show/hide on tablet/ medium screen  */
+.drawer-toggle:checked ~ .drawer-side > .drawer-overlay + *,
+.header-toggle:checked ~ .drawer-side > .drawer-overlay + * {
+    --tw-translate-x: 0;
+    width: 17rem;
+    height: 100vh;
+}
+
+.drawer-toggle:checked ~ .drawer-side > .drawer-overlay + * ul li span,
+.drawer-toggle:checked ~ .drawer-side > div > div a span {
+    display: block;
+    white-space: nowrap;
+}
+
+.drawer-toggle:checked .dropdown div:last-child,
+.drawer-toggle:checked ~ .drawer-side > .drawer-overlay + * .dropdown div:last-child {
+    display: flex;
+}
+
+
+/* header-drawer custom setting */
+.header-toggle {
+    position: absolute;
+    height: 0;
+    width: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    opacity: 0
+}
+
+
+
+/* custom styling */
+.height-auto {
+    height: calc(100vh - 100px);
+}
+
+::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+}
+
+.drawer > .drawer-toggle ~ .drawer-side {
+    overflow: visible;
+}
+
+.collapse-plus .collapse-title:after {
+    @apply top-2;
+}
+
+ .collapse-plus .collapse-title:after {
+     @apply text-accent -mt-3 text-lg;
+     content: '';
+ }
+
+
+
+/* LEFTBAR: Collapsable Menu */
+.menu li a.active {
+    @apply text-white bg-primary hover:bg-primary-focus;
+}
+.menu li a {
+    @apply px-0.5;
+}
+
+/* level:1 */
+.collapse.collapse-open .collapse-title .icon-plus {
+    display: none;
+}
+.collapse.collapse-close .collapse-title .icon-minus {
+    display: none;
+}
+
+
+/* level:2 */
+.collapse.collapse-open .collapse-content .collapse-close .collapse-title .icon-plus {
+    display: block;
+}
+.collapse.collapse-open .collapse-content .collapse-close .collapse-title .icon-minus {
+    display: none;
+}
+.collapse.collapse-open .collapse-content .collapse-open .collapse-title .icon-minus {
+    display: block;
+}
+.collapse.collapse-open .collapse-content .collapse-open .collapse-title .icon-plus {
+    display: none;
+}

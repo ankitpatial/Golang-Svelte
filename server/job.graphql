@@ -1,0 +1,274 @@
+extend type Mutation {
+    """ Invite a partner to job """
+    assignPartnerToJob(jobID: ID!, partnerID: ID!): String! @authorize(roles: [ADMIN])
+}
+
+extend type Query {
+    """
+    get job by ID
+    """
+    job(id: ID!): Job @authorize(roles:[ADMIN])
+
+    """assigned job detail"""
+    myJob(id: ID!): Job @authorize
+
+    """ get job geocode """
+    jobGeoCode(id: ID!): [Point]! @authorize(roles:[ADMIN])
+
+    """ unassigned jobs """
+    unassignedJobs(
+        progress: JobProgress
+        search: String
+        betweenDates: [String!]
+        page: PageInput!
+        orderBy: JobOrder
+    ): JobConnection @authorize
+
+    """ assigned jobs """
+    assignedJobs(
+        progress: JobProgress
+        search: String
+        betweenDates: [String!]
+        page: PageInput!
+        orderBy: JobOrder
+    ): JobConnection @authorize
+
+    jobsByProgress(
+        status: JobProgress!, search: String, betweenDates: [String!], page: PageInput!, orderBy: JobOrder
+    ): JobConnection @authorize(roles:[ADMIN])
+
+    """ partner jobs stats """
+    partnerJobStats(search: String, partnerType: PartnerType!, skip: Int!, take: Int!): [PartnerJobStats!] @authorize(roles: [ADMIN])
+
+    """ job assigned to partner.
+    This will include the jobs that are accepted & Job Invites that are waiting partner response
+    """
+    partnerJobs(
+        partnerID: ID!
+        search: String
+        flagged: Boolean
+        progress: JobProgress
+        dates: [String!]
+        page: PageInput!
+    ): JobConnection @authorize
+
+    """ approved jobs as per the logged in user."""
+    approvedJobs(search: String, progress: JobProgress, dates: [String!], page: PageInput!): JobConnection @authorize
+
+
+
+    """DEPRECATED get a job estimates list """
+    jobEstimates(jobID: ID!):JobEstimates @authorize(roles:[ADMIN])
+}
+
+enum JobOrderField {
+    CREATED
+    STATUS_AT
+    PROGRESS_AT
+}
+
+enum JobStatus @goModel(model: "roofix/pkg/enum.JobStatus") {
+    Request
+    Estimating
+    Estimated
+    Denied
+    Approved
+    Assigned
+    Accepted
+}
+
+
+enum JobAssignmentStatus @goModel(model: "roofix/pkg/enum.JobAssignmentStatus"){
+    Assigned
+    Accepted
+    Rejected
+    Expired
+}
+
+enum JobSource @goModel(model: "roofix/pkg/enum.JobSource") {
+    Manual
+    External
+}
+
+enum EstimateProvider {
+    RoofixAPI
+    EagleView
+    NearMap
+}
+
+enum ExtraCharge {
+    NONE
+    AMOUNT
+    PERCENT
+    PER_SQ
+}
+
+enum JobDocUrlType {
+    InspectionDocs
+    ProductionPics
+}
+
+input ApproveJobInput {
+    ownerEmail: String
+    ownerPhone: String
+    epc: ID
+    agree: Boolean
+}
+
+input JobDatesInput @goModel(model: "roofix/pkg/job.DatesInput") {
+    materialDate: Time,
+    removeDate: Time,
+    installDate: Time,
+    completionDate: Time
+}
+
+input Measurement @goModel(model: "roofix/pkg/pricing.Measurement") {
+    squares: Float!
+    pitch: String!
+}
+
+input InputPoint {
+    lat: Float!
+    lng: Float!
+}
+
+input JobOrder {
+    direction: OrderDirection!
+    field: JobOrderField
+}
+
+type JobConnection {
+    edges:     [JobEdge!]
+    pageInfo:   PageInfo!
+    totalCount: Int!
+}
+
+type JobEdge {
+    node:   Job
+    cursor: Cursor
+}
+
+type Job implements Node @goModel(model: "roofix/ent.Job") {
+    id: ID!
+    createdAt: Time!
+    updatedAt: Time!
+    price: Float! @floatFor(roles: [ADMIN])
+    workOrderPrice: Float!
+    progress: JobProgress
+    progressAt: Time
+    progressFlagged: Boolean
+    installDate: Time
+    inspectionDate: Time
+    completionDate: Time
+    note: String
+    permitRequired: Boolean
+    inspectionRequired: Boolean
+
+    estimate: Estimate
+    contractor: Entity
+
+    companyName: String!
+    creatorName: String!
+    epcName: String!
+    homeOwner: HomeOwner
+    salesRep: UserInfo
+    creator: UserInfo
+}
+
+type JobEstimates {
+    id: ID!
+    status: String!
+    estimates: [Estimate!]
+}
+
+type EstimateResponse {
+    id: ID!
+    createdAt: Time!
+    description: String!
+    need: Boolean!
+    raw: Map
+}
+
+type PriceSummary {
+    total: Float!
+    summary:  String!
+}
+
+type Point {
+    lat: Float!
+    lng: Float!
+}
+
+type ProgressFlag {
+    status: JobProgress!
+    flagged: Boolean!
+}
+
+type NearmapResponse  @goModel(model: "roofix/pkg/nearmap.ResponseAndDetail") {
+    detail: NearmapEstimateDetail!
+    raw: Map!
+}
+
+type NearmapEstimateDetail @goModel(model: "roofix/pkg/nearmap.EstimateDetail")  {
+    price: Float! @authorize(roles: [ADMIN])
+    primaryPitchInDegrees: Float!
+    primaryPitch: Float!
+    tileArea: Float!
+    tileRatio: Float!
+    shingleArea: Float!
+    shingleRatio: Float!
+    metalArea: Float!
+    metalRatio: Float!
+    flatArea: Float!
+    flatRatio: Float!
+    gableArea: Float!
+    gableRatio: Float!
+    hipArea: Float!
+    hipRatio: Float!
+    dutchGableArea: Float!
+    dutchGableRatio: Float!
+    turretArea: Float!
+    turretRatio: Float!
+    dominantRoofMaterial: String!
+    dominantRoofMaterialID: Int!
+    roofCount: Int!
+    totalUnclippedArea: Float!
+    roofMaterialRatioTotal: Float!
+    roofTypeRatioTotal: Float!
+    roofMaterialSurfaceAreaTotal: Float!
+    roofTypeSurfaceAreaTotal: Float!
+    treeOverhangRatioPrimaryRoof: Float!
+    treeOverhangConfidencePrimaryRoof: Float!
+    treeOverhangPresenceConfidence: Float!
+    treeOverhangAreaPrimaryRoof: Float!
+    treeOverhangTotalClippedArea: Float!
+    treeOverhangTotalUnClippedArea: Float!
+    treeOverhangPresent: Boolean!
+    treeOverhangCount: Int!
+}
+
+
+type PartnerJobStats @goModel(model: "roofix/pkg/partner.JobStats") {
+    id: ID!
+    name: String!
+    status: PartnerStatus!
+    newCount: Int!
+    newCountFlagged: Int!
+    contactedCount: Int!
+    contactedCountFlagged: Int!
+    confirmedCount: Int!
+    confirmedCountFlagged: Int!
+    permittingCount: Int!
+    permittingCountFlagged: Int!
+    scheduledCount: Int!
+    scheduledCountFlagged: Int!
+    inProgressCount: Int!
+    inProgressCountFlagged: Int!
+    installedCount: Int!
+    installedCountFlagged: Int!
+    invoicedCount: Int!
+    invoicedCountFlagged: Int!
+    delayedCount: Int!
+    total: Int!
+    totalFlagged: Int!
+}

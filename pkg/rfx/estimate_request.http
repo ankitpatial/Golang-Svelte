@@ -1,0 +1,77 @@
+### LOCAL
+POST http://localhost:4000/rfx/request-an-estimate
+Authorization: Bearer Jp2ZF/BLkouk0lIdLkTVhWNt+F+/qXxx14g0mJvTP4Vu74MuPmqacwH+DPVYCaXmOWpSs1Ko5qSKYk59rYpWs6jN4PoqlTS/f06PmutXUQHcrm549mLSCS9j3ls5yzXdNFwG1aatsHLCxOAeG70wAy5/lz8C1k+w7bm8pXd8oDfxpe8Lse74v10fRdmKJnzkCaZs2rfKz3kLMVKX0lJNijdP92bJ8lW/xERKWcqzIC6sHp7/rFcisruIC+kB+E+STnmL1Wp1mG/lW5pcaOUJ12dGrWvz/J28+ix2VTyRXb8VF2IILIxiyrStKnRlkIrLMth7DlpeurLcf47jKVugWQ==
+Content-Type: application/json
+
+{
+  "companyID": "abc",
+  "currentMaterial": 2,
+  "externalID": "1689106073144x003",
+  "homeOwner": {
+    "city": "Austin",
+    "firstName": "Yo",
+    "lastName": "Man",
+    "latitude": 35.568425,
+    "longitude": -97.733357,
+    "state": "Oklahoma",
+    "streetName": "Northwest 95th Street",
+    "streetNumber": "11701",
+    "zip": "73099"
+  },
+  "layer2Material": 0,
+  "layer3Material": 0,
+  "layers": 1,
+  "lowSlope": true,
+  "measurementType": 1,
+  "newRoofingMaterial": 1,
+  "newRoofingMaterialLowSlope": 1,
+  "partialPercentage": 0,
+  "redeck": false,
+  "salesRep": {
+    "companyName": "ABC CO",
+    "email": "a@abc.com",
+    "firstName": "Tom",
+    "lastName": "Valdez",
+    "mobile": "12111111111"
+  }
+}
+
+
+### STAGING
+#POST https://app.rfx.services/rfx/request-an-estimate
+POST https://www.roofixstaging.com/rfx/request-an-estimate
+Authorization: Bearer c5MYWzoPnnz0Z7KyFxBb9n1e6DBsx4QtwMJhYhECs2K3DvMsFwEU1SFBzN96dNd9JefvS56uQb+JNbRHG6iwdoFWtFuRnv7PmDvke2Hqy/I5tBxSXVpkbKj1Qcfr9D1X6P6lP0X2P56eg4z9qbmnUvui4UrmZ3i3TI8Ei8122jcPCBVT8HUmegVDyFbSy/IgYOtQYJUkROZiRSjik0Y6rFSB8aOD8osiHAvDhO72rc1MNF2qUs9dwrBpzY9DLVhAvZshlkKDfByEKPBvVDf6Qgh3TO2vZg9lS/9//Uz4duXPt9geTN70o/4jeHBpat6g8MYzh7SvzBGYJfbLWc0n+/GMz+wx7HXGD8XGFYap
+Content-Type: application/json
+
+{
+  "companyID": "1666375028799x332596612424269800",
+  "currentMaterial": 2,
+  "externalID": "1689106073144x567462734191919100",
+  "homeOwner": {
+    "city": "San Carlos Park",
+    "firstName": "Kelly",
+    "lastName": "Hotinger",
+    "latitude": 26.462101,
+    "longitude": -81.79943,
+    "state": "Florida",
+    "streetName": "Mandarin Road",
+    "streetNumber": "",
+    "zip": "33967"
+  },
+  "layer2Material": 0,
+  "layer3Material": 0,
+  "layers": 1,
+  "lowSlope": true,
+  "measurementType": 1,
+  "newRoofingMaterial": 1,
+  "newRoofingMaterialLowSlope": 1,
+  "partialPercentage": 0,
+  "redeck": false,
+  "salesRep": {
+    "companyName": "Lumio East",
+    "email": "kennedy.hatch@lumio.com",
+    "firstName": "Kennedy",
+    "lastName": "Hatch",
+    "mobile": "3853499135"
+  }
+}

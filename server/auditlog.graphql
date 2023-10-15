@@ -1,0 +1,35 @@
+extend type Query {
+    """ audit logs"""
+    auditLogs(search: String, page: PageInput!, orderBy: AuditLogOrder): AuditLogConnection @authorize(roles: [ADMIN])
+    apiUserAuditLogs(id: ID!, search: String, page: PageInput!, orderBy: AuditLogOrder): AuditLogConnection @authorize(roles: [ADMIN])
+}
+
+enum AuditLogOrderField {
+    CREATED
+}
+
+input AuditLogOrder {
+    direction: OrderDirection!
+    field: AuditLogOrderField
+}
+
+type AuditLogConnection {
+    edges:     [AuditLogEdge!]
+    pageInfo:   PageInfo!
+    totalCount: Int!
+}
+
+type AuditLogEdge {
+    node:   AuditLog
+    cursor: Cursor
+}
+
+type AuditLog implements Node{
+    id: ID!
+    createdAt: Time!,
+    action: String!
+    description: String!
+    user: User
+    apiUser: ApiUser
+    ip: String!
+}

@@ -1,0 +1,113 @@
+# Ref doc: https://docs.nearmap.com/display/ND/Nearmap+AI+Feature+API
+# https://api.nearmap.com/ai/features/v4
+# key: NmM1ZmYwNzUtNDYzNS00MDA5LWI3ZWItNjA5YWM2ZGZiYWUz
+###
+GET https://api.nearmap.com/ai/features/v4/rollups.json?order=latest&bulk=false&packs=roof_char&
+    apikey=NmM1ZmYwNzUtNDYzNS00MDA5LWI3ZWItNjA5YWM2ZGZiYWUz&
+    polygon=-73.9772146196434,40.788529340028866,-73.97680424166413,40.788348601271075,-73.97720925522538,40.78784293629036,-73.97760353995056,40.78798712227969,-73.9772146196434,40.788529340028866
+
+###
+GET https://api.nearmap.com/ai/features/v4/rollups.json?order=latest&bulk=false&packs=roof_char&
+    apikey=NmM1ZmYwNzUtNDYzNS00MDA5LWI3ZWItNjA5YWM2ZGZiYWUz&
+    polygon=-97.073442,32.554116,-97.073664,32.554116,-97.073664,32.553914,-97.073442,32.553914,-97.073442,32.554116
+
+###
+### with pitch null in latest survey
+GET https://api.nearmap.com/ai/features/v4/rollups.json?order=latest&bulk=false&packs=roof_char,building_char
+    &apikey=NmM1ZmYwNzUtNDYzNS00MDA5LWI3ZWItNjA5YWM2ZGZiYWUz
+    &streetAddress=680 Royal Palm Drive
+    &city=Kissimmee
+    &state=Florida
+    &zip=34743
+    &country=US
+    &until=2022-04-01
+
+###
+GET https://api.nearmap.com/ai/features/v4/features.json?order=latest&bulk=false&packs=roof_char
+    &apikey=NmM1ZmYwNzUtNDYzNS00MDA5LWI3ZWItNjA5YWM2ZGZiYWUz
+    &streetAddress=10897 S River Front Pkwy Ste. 150
+    &city=South Jordan
+    &state=UT
+    &zip=84095
+
+### with tree coverarge
+GET https://api.nearmap.com/ai/features/v4/rollups.json?order=latest&bulk=false&packs=roof_char,building_char
+    &apikey=NmM1ZmYwNzUtNDYzNS00MDA5LWI3ZWItNjA5YWM2ZGZiYWUz
+    &streetAddress=2305 N 4th St.
+    &city=Columbus
+    &state=Ohio
+    &zip=43202
+    &country=US
+    &until=2022-07-24
+
+### with pitch null in latest survey
+GET https://api.nearmap.com/ai/features/v4/rollups.json?order=latest&bulk=false&packs=roof_char,building_char
+    &apikey=NmM1ZmYwNzUtNDYzNS00MDA5LWI3ZWItNjA5YWM2ZGZiYWUz
+    &streetAddress=680 Royal Palm Drive
+    &city=Kissimmee
+    &state=Florida
+    &zip=34743
+    &country=US
+    &until=2022-04-01
+
+### Test
+GET https://api.nearmap.com/ai/features/v4/rollups.json?order=latest&bulk=false&packs=roof_char,building_char
+    &apikey=NmM1ZmYwNzUtNDYzNS00MDA5LWI3ZWItNjA5YWM2ZGZiYWUz
+    &streetAddress=1808 Baylor Drive
+    &city=Richardson
+    &state=Texas
+    &zip=75081
+    &country=US
+
+### getting, 500 Internal Server Error
+GET https://api.nearmap.com/ai/features/v4/rollups.json?order=latest&bulk=false&packs=roof_char&
+    apikey=NmM1ZmYwNzUtNDYzNS00MDA5LWI3ZWItNjA5YWM2ZGZiYWUz&streetAddress=11627+North+Galahad+Drive&city=Spokane&
+    state=Washington&zip=99218&country=US&until=2023-04-19
+
+
+###
+POST https://api.nearmap.com/ai/features/v4/rollups.json?order=latest&bulk=false&packs=roof_char&
+    apikey=NmM1ZmYwNzUtNDYzNS00MDA5LWI3ZWItNjA5YWM2ZGZiYWUz
+Content-Type: application/json
+
+{
+  "aoi": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -82.0642201906939,
+          40.3367905511384
+        ],
+        [
+          -82.0645041152358,
+          40.3369627492515
+        ],
+        [
+          -82.0651647371439,
+          40.3373634050477
+        ],
+        [
+          -82.0651653044245,
+          40.337362856969
+        ],
+        [
+          -82.0658328972657,
+          40.3367180408029
+        ],
+        [
+          -82.0648890927027,
+          40.3361456392436
+        ],
+        [
+          -82.0648883553935,
+          40.3361451915518
+        ],
+        [
+          -82.0642201906939,
+          40.3367905511384
+        ]
+      ]
+    ]
+  }
+}

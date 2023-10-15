@@ -1,0 +1,90 @@
+extend type Mutation {
+    """ update job progress """
+    jobProgressUpdate(
+        id: ID!
+        step: JobProgress!
+        stepComplete: Boolean!
+        note: String!
+        data: ProgressInput
+    ): Boolean! @authorize
+
+    jobDelay(id: ID!, flag: Boolean!, reason: String!): Boolean! @authorize
+}
+
+extend type Query {
+    """ completed steps history """
+    jobCompletedProgress( id: ID! ): [JobProgressHistory]! @authorize
+    jobProgress(id: ID!, search: String, page: PageInput!): JobProgressHistoryConnection @authorize
+}
+
+enum JobProgress @goModel(model: "roofix/pkg/enum.JobProgress")  {
+    New
+    CustomerContacted
+    JobDetailsConfirmed
+    Permitting
+    Delayed
+    Scheduled
+    InProgress
+    Installed
+    Invoiced
+    InvoiceApproved
+    InvoicePaid
+}
+
+
+enum JobShingleColor  {
+    Brown
+    Sandstorm
+    Blue
+}
+
+enum JobInspectionRequired  {
+    Yes
+    No
+}
+
+enum JobPermitRequired  {
+    Yes
+    No
+}
+
+input JobProgressInput @goModel(model: "roofix/ent/schema.JobProgressInput") {
+    question: String!
+    answer: String!
+    order: Int!
+}
+
+input ProgressInput {
+    shingleColor: String
+    permitRequired: Boolean
+    inspectionRequired: Boolean
+    installDate: Time
+    inspectionDate: Time
+    completionDate: Time
+}
+
+type JobProgressHistory @goModel(model: "roofix/ent.JobProgressHistory") {
+    id: ID!
+    status: JobProgress!
+    statusAt: Time!
+    complete: Boolean!
+    note: String!
+}
+
+type JobProgressData @goModel(model: "roofix/ent/schema.JobProgressInput")  {
+    question: String!
+    answer: String!
+    order: Int!
+}
+
+
+type JobProgressHistoryConnection {
+    edges:     [JobProgressHistoryEdge!]
+    pageInfo:   PageInfo!
+    totalCount: Int!
+}
+
+type JobProgressHistoryEdge {
+    node:   JobProgressHistory
+    cursor: Cursor
+}

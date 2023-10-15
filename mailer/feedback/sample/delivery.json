@@ -1,0 +1,79 @@
+{
+  "eventType": "Delivery",
+  "mail": {
+    "timestamp": "2022-10-19T08:24:01.096Z",
+    "source": "Roofix Stage [No Reply] <no-reply@roofixstaging.com>",
+    "sourceArn": "arn:aws:ses:us-east-1:655143700202:identity/roofixstaging.com",
+    "sendingAccountId": "655143700202",
+    "messageId": "01000183ef57a148-5e2b6755-d685-43bb-8f75-290f13f48464-000000",
+    "destination": [
+      "ankit@simsaw.com"
+    ],
+    "headersTruncated": false,
+    "headers": [
+      {
+        "name": "From",
+        "value": "\"Roofix Stage [No Reply]\" <no-reply@roofixstaging.com>"
+      },
+      {
+        "name": "To",
+        "value": "ankit@simsaw.com"
+      },
+      {
+        "name": "Subject",
+        "value": "Your Roofix account password"
+      },
+      {
+        "name": "MIME-Version",
+        "value": "1.0"
+      },
+      {
+        "name": "Content-Type",
+        "value": "text/html; charset=UTF-8"
+      },
+      {
+        "name": "Content-Transfer-Encoding",
+        "value": "quoted-printable"
+      }
+    ],
+    "commonHeaders": {
+      "from": [
+        "\"Roofix Stage [No Reply]\" <no-reply@roofixstaging.com>"
+      ],
+      "to": [
+        "ankit@simsaw.com"
+      ],
+      "messageId": "01000183ef57a148-5e2b6755-d685-43bb-8f75-290f13f48464-000000",
+      "subject": "Your Roofix account password"
+    },
+    "tags": {
+      "ses:operation": [
+        "SendEmail"
+      ],
+      "ses:configuration-set": [
+        "mail-config"
+      ],
+      "ses:source-ip": [
+        "34.198.200.14"
+      ],
+      "ses:from-domain": [
+        "roofixstaging.com"
+      ],
+      "ses:caller-identity": [
+        "mailerFn-role"
+      ],
+      "ses:outgoing-ip": [
+        "54.240.8.93"
+      ]
+    }
+  },
+  "delivery": {
+    "timestamp": "2022-10-19T08:24:02.918Z",
+    "processingTimeMillis": 1822,
+    "recipients": [
+      "ankit@simsaw.com"
+    ],
+    "smtpResponse": "250 2.0.0 OK  1666167842 g2-20020a0562141cc200b004738ba79f81si7836923qvd.300 - gsmtp",
+    "reportingMTA": "a8-93.smtp-out.amazonses.com"
+  }
+}

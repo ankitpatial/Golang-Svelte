@@ -1,0 +1,82 @@
+{
+  "eventType": "Bounce",
+  "bounce": {
+    "feedbackId": "01000183ef42bc9d-4daf5633-b273-48a9-941f-723e63e140fd-000000",
+    "bounceType": "Permanent",
+    "bounceSubType": "OnAccountSuppressionList",
+    "bouncedRecipients": [
+      {
+        "emailAddress": "dummy@simsaw.com",
+        "action": "failed",
+        "status": "5.1.1",
+        "diagnosticCode": "Amazon SES did not send the message to this address because it is on the suppression list for your account. For more information about removing addresses from the suppression list, see the Amazon SES Developer Guide at https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-email-suppression-list.html"
+      }
+    ],
+    "timestamp": "2022-10-19T08:01:11.975Z",
+    "reportingMTA": "dns; amazonses.com"
+  },
+  "mail": {
+    "timestamp": "2022-10-19T08:01:11.080Z",
+    "source": "Roofix Stage [No Reply] <no-reply@roofixstaging.com>",
+    "sourceArn": "arn:aws:ses:us-east-1:655143700202:identity/roofixstaging.com",
+    "sendingAccountId": "655143700202",
+    "messageId": "01000183ef42b9a8-b1e6ba1d-05b7-4da3-af37-eaa0504e651b-000000",
+    "destination": [
+      "dummy@simsaw.com"
+    ],
+    "headersTruncated": false,
+    "headers": [
+      {
+        "name": "From",
+        "value": "\"Roofix Stage [No Reply]\" <no-reply@roofixstaging.com>"
+      },
+      {
+        "name": "To",
+        "value": "dummy@simsaw.com"
+      },
+      {
+        "name": "Subject",
+        "value": "Your Roofix account password"
+      },
+      {
+        "name": "MIME-Version",
+        "value": "1.0"
+      },
+      {
+        "name": "Content-Type",
+        "value": "text/html; charset=UTF-8"
+      },
+      {
+        "name": "Content-Transfer-Encoding",
+        "value": "quoted-printable"
+      }
+    ],
+    "commonHeaders": {
+      "from": [
+        "\"Roofix Stage [No Reply]\" <no-reply@roofixstaging.com>"
+      ],
+      "to": [
+        "dummy@simsaw.com"
+      ],
+      "messageId": "01000183ef42b9a8-b1e6ba1d-05b7-4da3-af37-eaa0504e651b-000000",
+      "subject": "Your Roofix account password"
+    },
+    "tags": {
+      "ses:operation": [
+        "SendEmail"
+      ],
+      "ses:configuration-set": [
+        "mail-config"
+      ],
+      "ses:source-ip": [
+        "34.198.200.14"
+      ],
+      "ses:from-domain": [
+        "roofixstaging.com"
+      ],
+      "ses:caller-identity": [
+        "mailerFn-role"
+      ]
+    }
+  }
+}

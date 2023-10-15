@@ -1,0 +1,36 @@
+### Simple WebSocket Request
+// It is possible to send messages to server right from the Services tool window
+WEBSOCKET ws://localhost:4000/ws
+
+### Request with client messages
+// It is possible to specify client messages in request body. Use '===' to separate messages.
+// Add '=== wait-for-server' above a message to send it after a server response is received.
+// To wait for N responses, add '=== wait-for-server' N times.
+WEBSOCKET ws://localhost:4000/ws
+Content-Type: application/json // We use it for highlighting
+
+===
+{
+  "action": "Broadcast",
+  "data": {
+    "message": "Hello"
+  }
+}
+===
+{
+  "action": "Broadcast",
+  "data": {
+    "message": "Hello 02"
+  }
+}
+
+###
+POST http://localhost:4000/ws-msg
+Content-Type: application/json
+
+{
+  "action": "Broadcast",
+  "data": {
+    "message": "Hello there"
+  }
+}

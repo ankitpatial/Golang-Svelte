@@ -1,0 +1,33 @@
+### LOCAL
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+  "grant_type": "password",
+  "username": "test",
+  "password": "kj6>L9CtP^AYKKV45);4O7)5o",
+  "mac": "kj6>L9CtP^AYKKV45);4O7)5o",
+  "ubuntu": "gOVCX4C98']5mG80!26dYTLCO"
+}
+
+
+### STAGING
+POST https://www.roofixstaging.com/token
+Content-Type: application/json
+
+{
+  "grant_type": "password",
+  "username": "test",
+  "password": "gQgJ7RZPUQ09B8JK}8G*{G-El"
+}
+
+
+### PRODUCTION
+POST https://app.rfx.services/token
+Content-Type: application/json
+
+{
+  "grant_type": "password",
+  "username": "test",
+  "password": "e1*J*4ZI1ILT4eF9K6Q|r'8gU"
+}

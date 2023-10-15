@@ -1,0 +1,21 @@
+<!--
+  ~ Copyright (c) Simsaw Software Pvt. Ltd. 2023.
+  ~ Author: Ankit Patial <ankit@simsaw.com>
+  -->
+
+<p>
+    Dear, <strong>{{.partner}}</strong>
+</p>
+<p>
+    Following job(s) requires your immediate attention and requires you to contact customer today. Job(s) with no
+    progress will be un-assigned by end of day today.
+</p>
+
+{{range $val := .jobs}}
+<p style="margin-left: 8px">
+    <i>{{$val.Owner}}</i><br>
+    <i>{{$val.Address}}</i><br>
+    <a href='{{$.siteURL}}/user/jobs/{{$val.ID}}' target='_blank' rel='noopener noreferrer'>click to view job</a>
+</p>
+{{end}}
+

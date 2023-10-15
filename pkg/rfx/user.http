@@ -1,0 +1,27 @@
+POST http://localhost:4000/rfx/save-user
+Authorization: Bearer Jp2ZF/BLkouk0lIdLkTVhWNt+F+/qXxx14g0mJvTP4Vu74MuPmqacwH+DPVYCaXmOWpSs1Ko5qSKYk59rYpWs6jN4PoqlTS/f06PmutXUQHcrm549mLSCS9j3ls5yzXdNFwG1aatsHLCxOAeG70wAy5/lz8C1k+w7bm8pXd8oDfxpe8Lse74v10fRdmKJnzkCaZs2rfKz3kLMVKX0lJNijdP92bJ8lW/xERKWcqzIC6sHp7/rFcisruIC+kB+E+STnmL1Wp1mG/lW5pcaOUJ12dGrWvz/J28+ix2VTyRXb8VF2IILIxiyrStKnRlkIrLMth7DlpeurLcf47jKVugWQ==
+Content-Type: application/json
+
+{
+  "id": "u071",
+  "email": "u07@aa.com",
+  "firstName": "Swifty",
+  "lastName": "Operator",
+  "role": 1,
+  "status": 1
+}
+
+
+### STAGE
+POST https://www.roofixstaging.com/rfx/save-user
+Authorization: Bearer c5MYWzoPnnz0Z7KyFxBb9n1e6DBsx4QtwMJhYhECs2K3DvMsFwEU1SFBzN96dNd9JefvS56uQb+JNbRHG6iwdoFWtFuRnv7PmDvke2Hqy/I5tBxSXVpkbKj1Qcfr9D1X6P6lP0X2P56eg4z9qbmnUvui4UrmZ3i3TI8Ei8122jcPCBVT8HUmegVDyFbSy/IgYOtQYJUkROZiRSjik0Y6rFSB8aOD8osiHAvDhO72rc1MNF2qUs9dwrBpzY9DLVhAvZshlkKDfByEKPBvVDf6Qgh3TO2vZg9lS/9//Uz4duXPt9geTN70o/4jeHBpat6g8MYzh7SvzBGYJfbLWc0n+/GMz+wx7HXGD8XGFYap
+Content-Type: application/json
+
+{
+  "id": "u01",
+  "email": "u01@aa.com",
+  "firstName": "Don",
+  "lastName": "Joe",
+  "role": 1,
+  "status": 1
+}

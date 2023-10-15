@@ -1,0 +1,81 @@
+extend type Mutation {
+    saveNotifySettings(userID: ID!, topicID: String!, email: Boolean!): Boolean! @authorize(roles: [ADMIN])
+    notificationRead(messageID: ID!): Boolean! @authorize
+}
+
+extend type Query {
+    userNotifySettings(id: ID!): [Notify] @authorize(roles: [ADMIN])
+    myUnreadNotificationsCount: Int! @authorize
+    myNotifications(page: PageInput!): NotifyMessageConnection! @authorize
+}
+
+enum NotifyType {
+    EMAIL,
+    SMS
+}
+
+enum Channel @goModel(model: "roofix/pkg/enum.Channel") {
+    PING
+    ESTIMATE
+    JOB
+    JOB_CHAT
+    JOB_NOTE
+    TASK
+    TRAINING_VIDEO
+    PARTNER
+    PARTNER_USER
+}
+
+enum Topic @goModel(model: "roofix/pkg/enum.Topic"){
+    BROADCAST
+    CHANGE
+    STATUS_CHANGE
+    PROGRESS
+    FILE_UPLOAD
+    ASSIGNED
+    CREATED
+    UPDATED
+    NEW_MESSAGE
+}
+
+enum AdminNotifyTopic {
+    PARTNER_ONBOARDING_DONE
+    EAGLE_VIEW_ESTIMATE_PROGRESS
+    EAGLE_VIEW_ESTIMATE_NEED
+    JOB_INVITATION_EXPIRED
+    CONTACT_US_REQUEST
+}
+
+enum UserNotifyTopic {
+    NEW_JOB_ALERT
+}
+
+type NotifyMessageConnection @goModel(model: "roofix/pkg/model.NotifyMessageConnection") {
+    totalCount: Int!
+    pageInfo:   PageInfo!
+    edges:     [NotifyMessageEdge!]
+}
+
+type NotifyMessageEdge @goModel(model: "roofix/pkg/model.NotifyMessageEdge") {
+    cursor: Cursor!
+    node:   NotifyMessage!
+}
+
+type NotifyMessage @goModel(model: "roofix/pkg/model.NotifyMessage") {
+    id: ID!
+    channel: Channel!
+    topic: Topic!
+    refID: String
+    title: String!
+    message: String!
+    from: String!
+    unread: Boolean!
+    createdAt: Time!
+}
+
+type Notify @goModel(model: "roofix/pkg/model.Notify"){
+    id: ID!
+    topic: String!
+    receiveEmail: Boolean!
+    receiveSMS: Boolean!
+}

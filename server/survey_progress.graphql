@@ -1,0 +1,31 @@
+extend type Query {
+    """ completed steps history """
+    surveyCompletedProgress( id: ID! ): [SurveyProgressDetail]! @authorize
+    surveyProgress(id: ID!, search: String, page: PageInput!): SurveyProgressConnection @authorize
+}
+
+type SurveyProgressConnection {
+    edges:     [SurveyProgressEdge!]
+    pageInfo:   PageInfo!
+    totalCount: Int!
+}
+
+type SurveyProgressEdge {
+    node:   SurveyProgressHistory
+    cursor: Cursor
+}
+
+type SurveyProgressHistory @goModel(model: "roofix/ent.SurveyProgress") {
+    id: ID!
+    status: SurveyProgress!
+    statusAt: Time!
+    complete: Boolean!
+    note: String!
+}
+
+type SurveyProgressDetail @goModel(model: "roofix/ent.SurveyProgress") {
+    id: ID!
+    status: SurveyProgress!
+    statusAt: Time!
+    note: String!
+}
